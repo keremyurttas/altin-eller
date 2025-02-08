@@ -5,6 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #0f3d76;
+  --secondary: #d3a530;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,3 +21,11 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+@import "./styles/barfiller.css";
+@import "./styles/bootstrap.min.css";
+@import "./styles/flaticon.css";
+@import "./styles/font-awesome.min.css";
+@import "./styles/magnific-popup.css";
+@import "./styles/owl.carousel.min.css";
+@import "./styles/slicknav.min.css";
+@import "./styles/style.css";
