@@ -14,6 +14,9 @@ export default {
       },
       borderColor: {
         primary: "var(--primary) !important",
+      },
+      textColor:{
+        primary: "var(--primary) !important",
       }
     },
   },

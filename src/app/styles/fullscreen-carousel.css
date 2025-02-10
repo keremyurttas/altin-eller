@@ -1,0 +1,16 @@
+.swiper-button-next,
+.swiper-button-prev {
+  color: white !important;
+
+  padding: 10px 15px;
+  border-radius: 50%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: var(--primary);
+}
