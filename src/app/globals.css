@@ -21,6 +21,7 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
 @import "./styles/barfiller.css";
 @import "./styles/bootstrap.min.css";
 @import "./styles/flaticon.css";

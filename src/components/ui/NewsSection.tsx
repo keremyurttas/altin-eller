@@ -19,6 +19,7 @@ export default function NewsSection({ news }: Props) {
           {news.map((item: New, index) => {
             return (
               <div
+              key={index}
                 className={
                   index > 3
                     ? "col-lg-6"

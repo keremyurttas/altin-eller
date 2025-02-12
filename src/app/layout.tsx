@@ -1,7 +1,8 @@
+import Navbar from "@/components/global/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Mulish, Oswald } from "next/font/google";
-
+import Footer from "@/components/global/Footer";
 
 const muli = Mulish({
   subsets: ["latin"],
@@ -27,7 +28,9 @@ export default function RootLayout({
     <html lang="en">
       <head></head>
       <body className={`${muli.className} ${oswald.className} antialiased`}>
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
