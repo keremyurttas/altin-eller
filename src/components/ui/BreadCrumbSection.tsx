@@ -18,7 +18,7 @@ export default function BreadCrumbSection(crumbDetails: Props) {
         <div className="row">
           <div className="col-lg-12 text-center">
             <div className="breadcrumb-text">
-              <h2>{crumbDetails.title}</h2>
+              <h2>{crumbDetails.title.toLocaleUpperCase("tr-TR")}</h2>
               <div className="bt-option">
                 <Link href={crumbDetails.targetLink}>Anasayfa</Link>
                 <span>{crumbDetails.title}</span>

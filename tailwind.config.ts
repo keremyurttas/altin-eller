@@ -15,9 +15,12 @@ export default {
       borderColor: {
         primary: "var(--primary) !important",
       },
-      textColor:{
+      textColor: {
         primary: "var(--primary) !important",
-      }
+      },
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+      },
     },
   },
   plugins: [],

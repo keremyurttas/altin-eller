@@ -17,8 +17,6 @@ import GetTouchSection from "@/components/ui/GetTouchSection";
 export default function Home() {
   return (
     <>
-    
-
       <FullscreenCarousel />
       <ChooseUsSection items={chooseUsItems} />
       <NewsSection news={news} />
@@ -26,7 +24,6 @@ export default function Home() {
       <PricingSection pricingCards={pricingCards} />
       <GallerySection galleryItems={galleryItems} />
       <TeamSection ourTeamMembers={ourTeamMembers} />
-      <GetTouchSection />
     </>
   );
 }

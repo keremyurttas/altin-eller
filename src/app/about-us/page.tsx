@@ -16,7 +16,6 @@ export default function About() {
       <AboutUsRating />
       <TeamSection ourTeamMembers={ourTeamMembers} />
       <BannerSection {...homepageBanner} />
-      <GetTouchSection />
     </>
   );
 }

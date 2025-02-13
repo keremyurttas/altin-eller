@@ -22,7 +22,7 @@ export default function PricingSection(Props: Props) {
         <div className="row justify-content-center">
           {Props.pricingCards.map((item, index) => {
             return (
-              <div className="col-lg-4 col-md-8">
+              <div key={index} className="col-lg-4 col-md-8">
                 <div className="ps-item">
                   <h3>{item.title}</h3>
                   <div className="pi-price">
@@ -30,8 +30,8 @@ export default function PricingSection(Props: Props) {
                     <span>{item.subtitle}</span>
                   </div>
                   <ul>
-                    {item.features.map((feature) => {
-                      return <li>{feature}</li>;
+                    {item.features.map((feature, index) => {
+                      return <li key={index}>{feature}</li>;
                     })}
                   </ul>
                   <a href="#" className="primary-btn pricing-btn font-mulish">

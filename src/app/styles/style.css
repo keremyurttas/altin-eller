@@ -1282,7 +1282,7 @@ ol {
   font-size: 60px;
   color: #ffffff;
   font-weight: 600;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   margin-bottom: 15px;
 }
 
@@ -2614,28 +2614,16 @@ ol {
 
 .contact-widget .cw-text i {
   font-size: 30px;
-  color: var(--primary);
+
   display: inline-block;
   height: 65px;
   width: 65px;
-  background: #363636;
+  background: var(--primary);
   border-radius: 50%;
   line-height: 65px;
   text-align: center;
   float: left;
   margin-right: 20px;
-}
-
-.contact-widget .cw-text p {
-  overflow: hidden;
-  color: #c4c4c4;
-  margin-bottom: 0;
-  padding-top: 10px;
-}
-
-.contact-widget .cw-text ul {
-  overflow: hidden;
-  padding-top: 20px;
 }
 
 .contact-widget .cw-text ul li {

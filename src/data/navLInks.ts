@@ -9,8 +9,8 @@ export const navLinks = [
     ],
   },
   { href: "/services", label: "HİZMETLERİMİZ" },
-  { href: "/team", label: "EKİBİMİZ" },
-  { href: "/contact", label: "BİZE ULAŞIN" },
+  { href: "/our-team", label: "EKİBİMİZ" },
+  { href: "/contact-us", label: "BİZE ULAŞIN" },
 ];
 
 export type NavLink = typeof navLinks[number];

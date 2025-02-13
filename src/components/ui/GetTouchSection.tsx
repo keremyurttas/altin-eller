@@ -1,6 +1,6 @@
 export default function GetTouchSection() {
   return (
-    <div className="gettouch-section">
+    <div className="gettouch-section ">
       <div className="container">
         <div className="row">
           <div className="col-md-4">

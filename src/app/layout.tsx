@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Mulish, Oswald } from "next/font/google";
 import Footer from "@/components/global/Footer";
+import GetTouchSection from "@/components/ui/GetTouchSection";
 
 const muli = Mulish({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={`${muli.className} ${oswald.className} antialiased`}>
         <Navbar />
         {children}
+        <GetTouchSection />
         <Footer />
       </body>
     </html>
