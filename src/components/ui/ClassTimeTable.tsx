@@ -1,23 +1,47 @@
-import React from "react";
-import { TimeTableData } from "@/data/timeTables";
+'use client';
+import React, { useEffect, useState } from "react";
+import type { VolleyballSchedule } from "@/lib/notion";
+
+const convertTimeToMinutes = (timeString: string) => {
+  const [time] = timeString.split('-'); // Take only the start time "18:00" from "18:00-19:00"
+  const [hours, minutes] = time.split(':').map(Number);
+  return hours * 60 + minutes;
+};
 
 interface ScheduleType {
   [key: string]: {
-    [key: string]: TimeTableData;
+    [key: string]: VolleyballSchedule;
   };
 }
 
-const ClassTimeTable = ({
-  data,
-  category,
-}: {
-  data: TimeTableData[];
-  category: string;
-}) => {
-  const uniqueTimes = [...new Set(data.map((item) => item.time))].sort();
+const ClassTimeTable = ({ category }: { category: string }) => {
+  const [scheduleData, setScheduleData] = useState<VolleyballSchedule[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("/api/get-schedule?category=" + category)
+      .then((res) => res.json())
+      .then((data) => {
+        setScheduleData(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setError("Failed to load schedule");
+        setLoading(false);
+      });
+  }, [category]);
 
   const schedule: ScheduleType = {};
-  data.forEach((item) => {
+  const uniqueTimes = [...new Set(scheduleData.map((item) => item.time))];
+  
+  // Sort times by converting to minutes for proper comparison
+  const sortedTimes = uniqueTimes.sort((a, b) => {
+    return convertTimeToMinutes(a) - convertTimeToMinutes(b);
+  });
+
+  scheduleData.forEach((item) => {
     if (!schedule[item.time]) {
       schedule[item.time] = {};
     }
@@ -33,6 +57,14 @@ const ClassTimeTable = ({
     "Cumartesi",
     "Pazar",
   ];
+
+  if (loading) {
+    return <div className="container text-center py-8">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="container text-center py-8 text-red-500">{error}</div>;
+  }
 
   return (
     <section className="class-timetable-section class-details-timetable spad">
@@ -57,14 +89,12 @@ const ClassTimeTable = ({
                   </tr>
                 </thead>
                 <tbody>
-                  {uniqueTimes.map((time, rowIndex) => (
+                  {sortedTimes.map((time, rowIndex) => (
                     <tr key={time}>
                       <td className="class-time">{time}</td>
                       {weekDays.map((day, colIndex) => {
                         const session = schedule[time]?.[day];
-                        // Calculate total cell index: multiply row index by number of columns and add column index
-                        const totalIndex =
-                          rowIndex * weekDays.length + colIndex;
+                        const totalIndex = rowIndex * weekDays.length + colIndex;
 
                         return (
                           <td
@@ -80,7 +110,9 @@ const ClassTimeTable = ({
                                   {session.category}
                                 </h5>
                                 <span className="md:text-xs text-[.5rem] capitalize">
-                                  {category}
+                                  {category === "volleyball" 
+                                    ? "Voleybol" 
+                                    : "Basketbol"}
                                 </span>
                               </>
                             )}

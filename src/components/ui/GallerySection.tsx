@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
+import { Video } from "yet-another-react-lightbox/plugins";
 import "yet-another-react-lightbox/styles.css";
 
 type Props = {
@@ -45,6 +46,7 @@ export default function GallerySection(props: Props) {
           close={() => setOpen(false)}
           index={index}
           slides={props.galleryItems.map((src) => ({ src }))}
+          plugins={[Video]}
         />
       </div>
     </div>

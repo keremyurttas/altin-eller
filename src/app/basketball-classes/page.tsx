@@ -143,7 +143,7 @@ export default function BasketballClasses() {
           </div>
         </div>
       </section>
-      <ClassTimeTable data={basketballTimeTableData} category="basketbol" />
+      <ClassTimeTable category="basketball" />
     </>
   );
 }

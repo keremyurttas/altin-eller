@@ -15,6 +15,11 @@ export interface Camp {
 export interface Image {
   url: string;
 }
+export type VolleyballSchedule = {
+  day: string;
+  time: string;
+  category: string;
+};
 
 export async function getCamps(): Promise<Camp[]> {
   try {
@@ -280,5 +285,41 @@ export async function createNewsApiHandler(req: Request) {
   } catch (error) {
     console.error("Error in news API handler:", error);
     return Response.json({ error: "Failed to fetch news" }, { status: 500 });
+  }
+}
+
+export async function getScheduleData(
+  category: string
+): Promise<VolleyballSchedule[]> {
+  const getDatabaseId = (category: string): string => {
+    switch (category.toLowerCase()) {
+      case "basketball":
+        return process.env.NEXT_PUBLIC_NOTION_BASKETBALL_SCHEDULE_DATABASE_ID!;
+      case "volleyball":
+        return process.env.NEXT_PUBLIC_NOTION_VOLLEYBALL_SCHEDULE_DATABASE_ID!;
+      default:
+        throw new Error(`Unknown category: ${category}`);
+    }
+  };
+  try {
+    const databaseId = getDatabaseId(category);
+    console.log("Database ID:", databaseId);
+    const response = await notion.databases.query({
+      database_id: databaseId,
+    });
+
+    return response.results.map((page: any) => {
+      const properties = page.properties;
+      return {
+        day: properties.Gün.select.name,
+        time: properties.Saat.title[0].plain_text,
+        category: properties.Kategori.multi_select
+          .map((category: { name: string }) => category.name)
+          .join(", "),
+      };
+    });
+  } catch (error) {
+    console.error(`Error fetching ${category} schedule data:`, error);
+    throw error;
   }
 }
