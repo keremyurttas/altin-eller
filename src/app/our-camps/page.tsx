@@ -59,7 +59,7 @@ export default function Page() {
             <div className="col-lg-12">
               {camps.length === 0 && loading ? (
                 <div className="flex justify-center items-center min-h-[400px]">
-                  <Loader2 className="w-8 h-8 animate-spin" />
+                  <Loader2 className="w-8 h-8 animate-spin text-white" />
                 </div>
               ) : (
                 <div className="flex flex-col items-center">
@@ -75,7 +75,7 @@ export default function Page() {
                       disabled={loading}
                       className="mt-8 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-blue-300 flex items-center gap-2"
                     >
-                      {loading && <Loader2 className="w-4 h-4 animate-spin" />}
+                      {loading && <Loader2 className="w-4 h-4 animate-spin text-white" />}
                       Daha Fazla
                     </button>
                   )}

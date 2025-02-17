@@ -98,7 +98,7 @@ export default function NewsSection() {
 
         {isLoading ? (
           <div className="flex justify-center items-center min-h-[400px]">
-            <Loader2 className="w-8 h-8 animate-spin" />
+            <Loader2 className="w-8 h-8 animate-spin text-white" />
           </div>
         ) : (
           <div className="row">

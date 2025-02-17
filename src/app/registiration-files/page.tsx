@@ -132,7 +132,7 @@ export default function FilesPage() {
 
           {/* Category Filter */}
           <div className="space-y-2">
-            <label htmlFor="category" className="block text-xl font-medium ">
+            <label htmlFor="category" className="block text-xl font-medium text-white">
               Kayıt tipi
             </label>
             <select

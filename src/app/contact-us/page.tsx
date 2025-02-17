@@ -16,7 +16,7 @@ export default function Page() {
                 <span>Contact Us</span>
                 <h2>GET IN TOUCH</h2>
               </div>
-              <div className="contact-widget">
+              <div className="contact-widget text-white">
                 <div className="cw-text flex items-center">
                   <i className="fa fa-map-marker"></i>
                   <a
