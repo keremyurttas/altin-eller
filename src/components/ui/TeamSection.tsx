@@ -80,7 +80,7 @@ export default function TeamSection(props: Props) {
         </div>
       </div>
 
-      <style jsx global>{`
+      <style jsx scoped>{`
         .swiper-container {
           position: relative;
           padding-bottom: 30px;

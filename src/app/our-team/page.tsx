@@ -22,9 +22,9 @@ export default function Page() {
             </div>
           </div>
           <div className="row">
-            {ourTeamMembers.map((member) => {
+            {ourTeamMembers.map((member, index) => {
               return (
-                <div className="col-lg-4 col-sm-6">
+                <div key={index} className="col-lg-4 col-sm-6">
                   <div
                     className="ts-item set-bg"
                     style={{

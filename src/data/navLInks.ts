@@ -8,9 +8,18 @@ export const navLinks = [
       { href: "/volleyball-classes", label: "Voleybol" },
     ],
   },
-  { href: "/services", label: "HİZMETLERİMİZ" },
+
   { href: "/our-team", label: "EKİBİMİZ" },
   { href: "/contact-us", label: "BİZE ULAŞIN" },
+  {
+    label: "DİĞER SAYFALAR",
+    dropdown: [
+      { href: "/registiration-files", label: "Kayıt Belgeleri" },
+      { href: "/our-camps", label: "Kamplarımız" },
+      { href: "/news", label: "Haberler" },
+        { href: "/services", label: "Hizmetlerimiz" },
+    ],
+  },
 ];
 
 export type NavLink = typeof navLinks[number];

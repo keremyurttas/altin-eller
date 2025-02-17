@@ -5,4 +5,5 @@ export const galleryItems = [
   "https://ik.imagekit.io/dyw3rzban/SPOR%20OKULLARI/_IGP5955.JPG?updatedAt=1739119131475",
   "https://ik.imagekit.io/dyw3rzban/SPOR%20OKULLARI/_IGP5630.JPG?updatedAt=1739119096674",
   "https://ik.imagekit.io/dyw3rzban/SPOR%20OKULLARI/_IGP5929.JPG?updatedAt=1739119130170",
+  
 ];

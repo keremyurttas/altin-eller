@@ -14,7 +14,6 @@ export default function AboutUsRating() {
     bars.forEach((bar) => {
       const percentage = bar.getAttribute("data-percentage");
       if (percentage) {
-        console.log(percentage);
         (bar as HTMLElement).style.width = `${percentage}%`;
       }
     });

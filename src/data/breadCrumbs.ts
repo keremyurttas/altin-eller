@@ -1,3 +1,5 @@
+import { title } from "process";
+
 export const aboutUs = {
   title: "Hakkımızda",
   targetLink: "/",
@@ -36,3 +38,21 @@ export const contactUs = {
   backgroundUrl:
     "https://ik.imagekit.io/dyw3rzban/M%C4%B0N%C4%B0K%20TAKIM/458A8943.JPG?updatedAt=1739119244686",
 };
+export const ourCamps = {
+  title: "Kamplarımız",
+  targetLink: "/",
+  backgroundUrl:
+    "https://ik.imagekit.io/dyw3rzban/M%C4%B0N%C4%B0K%20TAKIM/458A8943.JPG?updatedAt=1739119244686",
+};
+export const news = {
+  title: "Haberler",
+  targetLink: "/",
+  backgroundUrl:
+    "https://ik.imagekit.io/dyw3rzban/M%C4%B0N%C4%B0K%20TAKIM/458A8943.JPG?updatedAt=1739119244686",
+}
+export const bmiCalculator = {
+  title: "Vücut Kitle Endeksi Hesaplama",
+  targetLink: "/",
+  backgroundUrl:
+    "https://ik.imagekit.io/dyw3rzban/M%C4%B0N%C4%B0K%20TAKIM/458A8943.JPG?updatedAt=1739119244686",
+}
