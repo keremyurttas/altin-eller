@@ -41,12 +41,12 @@ export default function FullscreenSwiper() {
       onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Track active slide
     >
       {images.map((src, index) => (
-        <SwiperSlide key={index} className="relative">
+        <SwiperSlide key={index} className="relative w-full h-full">
           <Image
-            width={0}
-            height={0}
-            layout="responsive"
+            fill
             src={src}
+            priority
+            quality={100}
             alt={`Slide ${index + 1}`}
             className="w-full h-full object-cover"
           />

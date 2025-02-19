@@ -3,7 +3,7 @@ export default function GetTouchSection() {
   return (
     <div className="gettouch-section ">
       <div className="container">
-        <div className="row">
+        <div className="row text-white">
           <div className="col-md-4 ">
             <div className="gt-text flex items-center">
               <i className="fa fa-map-marker"></i>
