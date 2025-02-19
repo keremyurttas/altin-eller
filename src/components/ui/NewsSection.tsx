@@ -7,10 +7,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
 
-type Props = {
-  news: New[];
-};
-
 export default function NewsSection() {
   const [popupOpen, setPopupOpen] = useState(true);
   const [news, setNews] = useState<New[]>([]);
@@ -120,7 +116,7 @@ export default function NewsSection() {
                       setPopupOpen(true);
                       document.body.style.overflow = "hidden";
                     }}
-                    className="class-item"
+                    className="class-item  "
                   >
                     <div className="ci-pic">
                       <Image
@@ -137,11 +133,18 @@ export default function NewsSection() {
                         quality={100}
                       />
                     </div>
-                    <div className="ci-text">
-                      <h5>{item.title}</h5>
-                      <div className="ci-text-bottom-container">
-                        <span className="font-mulish">{item.description}</span>
-                        <button>
+                    <div className="ci-text flex flex-col justify-between min-h-[100px] md:min-h-[130px] lg:min-h-[150px]">
+                      <div className="flex justify-between items-center">
+                        <h5 className="text-lg font-bold">{item.title}</h5>
+                        <span className="date text-sm">
+                          {item.date.toString()}
+                        </span>
+                      </div>
+                      <div className="ci-text-bottom-container flex justify-between items-center">
+                        <span className="font-mulish line-clamp-2">
+                          {item.description}
+                        </span>
+                        <button className="p-2  bg-gray-200">
                           <i className="fa fa-angle-right"></i>
                         </button>
                       </div>
@@ -157,7 +160,7 @@ export default function NewsSection() {
 
             <Link
               href="/news"
-              className="primary-btn  mx-auto hover:scale-110 transform transition duration-300 ease-in-out hover:text-white" 
+              className="primary-btn  mx-auto hover:scale-110 transform transition duration-300 ease-in-out hover:text-white"
               style={{ padding: "8px 16px" }}
             >
               Tüm Haberler

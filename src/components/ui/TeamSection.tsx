@@ -5,14 +5,19 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { galleryItems } from "@/data/galleryItems";
+import { useEffect, useState } from "react";
+import { TeamMember } from "@/lib/notion";
 
-type Member = {
-  fullName: string;
-  title: string;
-  imageUrl: string;
-};
-type Props = { ourTeamMembers: Member[] };
-export default function TeamSection(props: Props) {
+export default function TeamSection() {
+  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
+  useEffect(() => {
+    fetch("/api/get-team-members")
+      .then((response) => response.json())
+      .then((data) => {
+        setTeamMembers(data);
+        console.log(data);
+      });
+  }, []);
   return (
     <section className="team-section spad">
       <div className="container">
@@ -24,7 +29,7 @@ export default function TeamSection(props: Props) {
                 <h2>PROFESYONELLERLE ÇALIŞIN</h2>
               </div>
               <a
-                href="#"
+                href="/contact-us#register-form"
                 className="primary-btn btn-normal appoinment-btn font-mulish"
               >
                 KAYIT OL
@@ -35,18 +40,21 @@ export default function TeamSection(props: Props) {
         <div className="relative pb-12">
           <div className="swiper-container overflow-hidden">
             <Swiper
-              modules={[Pagination, Autoplay]}
+              modules={[Pagination, Autoplay, Navigation]}
               slidesPerView={3}
               slidesPerGroup={3}
               spaceBetween={20}
-              navigation
+              navigation={{
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              }}
               speed={1000}
               pagination={{
                 clickable: true,
                 el: ".swiper-pagination",
               }}
               autoplay={{
-                delay: 3000,
+                delay: 10000,
                 disableOnInteraction: false,
               }}
               loop={true}
@@ -56,7 +64,7 @@ export default function TeamSection(props: Props) {
                 0: { slidesPerView: 1, slidesPerGroup: 1 },
               }}
             >
-              {props.ourTeamMembers.map((item, index) => (
+              {teamMembers.map((item, index) => (
                 <SwiperSlide key={index}>
                   <div
                     key={index}
@@ -68,14 +76,16 @@ export default function TeamSection(props: Props) {
                     }}
                   >
                     <div className="ts_text">
-                      <h4>{item.fullName}</h4>
-                      <span>{item.title}</span>
+                      <h4>{item.name}</h4>
+                      <span className="text-primary">{item.title}</span>
                     </div>
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
             <div className="swiper-pagination"></div>
+            <div className="swiper-button-next"></div>
+            <div className="swiper-button-prev"></div>
           </div>
         </div>
       </div>
@@ -88,20 +98,20 @@ export default function TeamSection(props: Props) {
         .swiper-pagination {
           bottom: 0 !important;
         }
-        .swiper-pagination-bullet {
+        :global(.swiper-pagination-bullet) {
           width: 20px;
           height: 5px;
           border-radius: 0;
           margin: 0 4px;
-          background: #ccc;
+          background: white;
           transform: skewY(-5deg);
         }
-        .swiper-pagination-bullet-active {
+        :global(.swiper-pagination-bullet-active) {
           background: var(--primary);
         }
         .swiper-button-prev,
         .swiper-button-next {
-          display: none !important;
+          color: var(--primary);
         }
       `}</style>
     </section>

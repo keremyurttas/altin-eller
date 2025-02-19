@@ -2,7 +2,7 @@ export const navLinks = [
   { href: "/", label: "ANA SAYFA" },
   { href: "/about-us", label: "HAKKIMIZDA" },
   {
-    label: "SINIFLAR",
+    label: "BRANŞLARIMIZ",
     dropdown: [
       { href: "/basketball-classes", label: "Basketbol" },
       { href: "/volleyball-classes", label: "Voleybol" },

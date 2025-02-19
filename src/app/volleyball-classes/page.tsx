@@ -5,6 +5,7 @@ import Image from "next/image";
 import { volleyballClassesClassesCategories } from "@/data/classCategories";
 import ClassTimeTable from "@/components/ui/ClassTimeTable";
 import { volleyballTimeTableData } from "@/data/timeTables";
+import GallerySection from "@/components/ui/GallerySection";
 export default function VolleyballClasses() {
   return (
     <>
@@ -144,6 +145,7 @@ export default function VolleyballClasses() {
         </div>
       </section>
       <ClassTimeTable category="volleyball" />
+      <GallerySection category="volleyball" />
     </>
   );
 }

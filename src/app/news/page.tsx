@@ -211,7 +211,7 @@ export default function Page() {
                         setPopupOpen(true);
                         document.body.style.overflow = "hidden";
                       }}
-                      className="class-item"
+                      className="class-item relative"
                     >
                       <div className="ci-pic">
                         <Image
@@ -228,16 +228,18 @@ export default function Page() {
                           quality={100}
                         />
                       </div>
-                      <div className="ci-text">
+                      <div className="ci-text flex flex-col justify-between min-h-[100px] md:min-h-[130px] lg:min-h-[150px]">
                         <div className="flex justify-between items-center">
-                          <h5>{item.title}</h5>
-                          <span className="date">{item.date.toString()}</span>
+                          <h5 className="text-lg font-bold">{item.title}</h5>
+                          <span className="date text-sm">
+                            {item.date.toString()}
+                          </span>
                         </div>
-                        <div className="ci-text-bottom-container">
-                          <span className="font-mulish">
+                        <div className="ci-text-bottom-container flex justify-between items-center">
+                          <span className="font-mulish line-clamp-2">
                             {item.description}
                           </span>
-                          <button>
+                          <button className="p-2  bg-gray-200">
                             <i className="fa fa-angle-right"></i>
                           </button>
                         </div>

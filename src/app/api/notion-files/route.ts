@@ -5,7 +5,6 @@ import { NextRequest } from "next/server";
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
-
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -23,7 +22,6 @@ export async function GET(request: NextRequest) {
       database_id: databaseId,
     };
 
-    // Modified filter for multi-select
     if (category) {
       queryOptions.filter = {
         property: "Kategori",
@@ -50,10 +48,17 @@ export async function GET(request: NextRequest) {
       };
     });
 
-    // Modified grouping for multi-select categories
+    // Sort function to put files without URLs at the top
+    const sortFiles = (filesArray: any[]) => {
+      return [...filesArray].sort((a, b) => {
+        if (!a.fileUrl && b.fileUrl) return -1;
+        if (a.fileUrl && !b.fileUrl) return 1;
+        return 0;
+      });
+    };
+
     if (!category) {
       const groupedFiles = files.reduce((acc: any, file) => {
-        // Handle multiple categories for each file
         file.categories.forEach((category: string) => {
           if (!acc[category]) {
             acc[category] = [];
@@ -63,6 +68,11 @@ export async function GET(request: NextRequest) {
         return acc;
       }, {});
 
+      // Sort files within each category
+      for (const category in groupedFiles) {
+        groupedFiles[category] = sortFiles(groupedFiles[category]);
+      }
+
       return NextResponse.json({
         success: true,
         groupedFiles,
@@ -70,9 +80,12 @@ export async function GET(request: NextRequest) {
       });
     }
 
+    // Sort files when returning a specific category
+    const sortedFiles = sortFiles(files);
+
     return NextResponse.json({
       success: true,
-      files,
+      files: sortedFiles,
       totalFiles: files.length,
       category,
     });

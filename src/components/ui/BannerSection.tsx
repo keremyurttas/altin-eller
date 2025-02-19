@@ -25,7 +25,7 @@ export default function BannerSection(Props: Props) {
               <div className="bt-tips text-lg mt-2 font-mulish">
                 {Props.subtitle}
               </div>
-              <a href="#" className="primary-btn btn-normal mt-4 inline-block">
+              <a href="/contact-us#register-form" className="primary-btn btn-normal mt-4 inline-block">
                 {Props.buttonText}
               </a>
             </div>

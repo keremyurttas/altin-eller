@@ -98,7 +98,7 @@ export default function FilesPage() {
 
   return (
     <section className="team-section team-page spad">
-      <div className="max-w-4xl mx-auto p-6 bg-primary rounded-xl shadow-lg  mt-8 ">
+      <div className="max-w-4xl mx-auto p-6 bg-primary rounded-xl shadow-lg  lg:mt-8 mt-16 ">
         <h1 className="text-3xl font-bold  mb-8 font-mulish text-white">
           Kayıt Belgeleri
         </h1>

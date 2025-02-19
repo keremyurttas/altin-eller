@@ -1,8 +1,20 @@
+"use client";
 import BreadCrumbSection from "@/components/ui/BreadCrumbSection";
 import { ourTeam } from "@/data/breadCrumbs";
-import { ourTeamMembers } from "@/data/ourTeamMembers";
+
+import { TeamMember } from "@/lib/notion";
+import { useState, useEffect } from "react";
 
 export default function Page() {
+  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
+  useEffect(() => {
+    fetch("/api/get-team-members")
+      .then((response) => response.json())
+      .then((data) => {
+        setTeamMembers(data);
+        console.log(data);
+      });
+  }, []);
   return (
     <>
       <BreadCrumbSection {...ourTeam} />
@@ -22,7 +34,7 @@ export default function Page() {
             </div>
           </div>
           <div className="row">
-            {ourTeamMembers.map((member, index) => {
+            {teamMembers.map((member, index) => {
               return (
                 <div key={index} className="col-lg-4 col-sm-6">
                   <div
@@ -34,8 +46,8 @@ export default function Page() {
                     }}
                   >
                     <div className="ts_text">
-                      <h4>{member.fullName}</h4>
-                      <span>{member.title}</span>
+                      <h4>{member.name}</h4>
+                      <span className="text-primary">{member.title}</span>
                     </div>
                   </div>
                 </div>

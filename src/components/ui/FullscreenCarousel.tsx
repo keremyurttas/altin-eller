@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -51,7 +51,9 @@ export default function FullscreenSwiper() {
               <div className="col-lg-6 offset-lg-6">
                 <div
                   className={`hi-text transition-all duration-700 ${
-                    activeIndex === index ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                    activeIndex === index
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-8"
                   }`}
                 >
                   <span className="md:text-2xl text-xl font-mulish">
@@ -64,7 +66,10 @@ export default function FullscreenSwiper() {
                     <br />
                     Spor Kulübü
                   </h1>
-                  <a href="#" className="primary-btn font-mulish">
+                  <a
+                    href="/contact-us#register-form"
+                    className="primary-btn font-mulish hover:scale-110 transition-transform"
+                  >
                     BİLGİ ALIN
                   </a>
                 </div>

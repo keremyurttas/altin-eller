@@ -53,7 +53,7 @@ export default function RegistrationForm() {
 
     try {
       const response = await fetch(
-        "https://formsubmit.co/ajax/kerem.yky@gmail.com",
+        "https://formsubmit.co/ajax/altinellersporkulubu1@gmail.com",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

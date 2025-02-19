@@ -5,6 +5,7 @@ import Image from "next/image";
 import { basketballClassesCategories } from "@/data/classCategories";
 import ClassTimeTable from "@/components/ui/ClassTimeTable";
 import { basketballTimeTableData } from "@/data/timeTables";
+import GallerySection from "@/components/ui/GallerySection";
 export default function BasketballClasses() {
   return (
     <>
@@ -144,6 +145,7 @@ export default function BasketballClasses() {
         </div>
       </section>
       <ClassTimeTable category="basketball" />
+      <GallerySection category="basketball" />
     </>
   );
 }

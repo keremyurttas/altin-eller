@@ -34,7 +34,7 @@ export default function PricingSection(Props: Props) {
                       return <li key={index}>{feature}</li>;
                     })}
                   </ul>
-                  <a href="#" className="primary-btn pricing-btn font-mulish">
+                  <a href="/contact-us#register-form" className="primary-btn pricing-btn font-mulish">
                     KAYIT OL
                   </a>
                   <a href="#" className="thumb-icon">

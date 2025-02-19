@@ -68,6 +68,7 @@ export default function Popup({
         {/* Swiper with Navigation */}
         <div className="relative">
           <Swiper
+          className="h-[50vh] w-full"
             modules={[Autoplay, Navigation, Pagination]}
             spaceBetween={0}
             slidesPerView={1}

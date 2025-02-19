@@ -24,7 +24,7 @@ export type VolleyballSchedule = {
 export async function getCamps(): Promise<Camp[]> {
   try {
     const response = await notion.databases.query({
-      database_id: process.env.NEXT_PUBLIC_NOTION_CAMPS_DATABASE_ID!,
+      database_id: process.env.NOTION_CAMPS_DATABASE_ID!,
       sorts: [
         {
           property: "Tarih",
@@ -67,7 +67,7 @@ export async function getCamps(): Promise<Camp[]> {
 export async function getCampImages(campId: string): Promise<Image[]> {
   try {
     const response = await notion.databases.query({
-      database_id: process.env.NEXT_PUBLIC_NOTION_IMAGES_DATABASE_ID!,
+      database_id: process.env.NOTION_IMAGES_DATABASE_ID!,
       filter: {
         property: "Kamplar",
         relation: {
@@ -154,7 +154,7 @@ export async function getPaginatedCamps(
 ): Promise<PaginatedResponse<Camp>> {
   try {
     const response = await notion.databases.query({
-      database_id: process.env.NEXT_PUBLIC_NOTION_CAMPS_DATABASE_ID!,
+      database_id: process.env.NOTION_CAMPS_DATABASE_ID!,
       page_size: pagination.pageSize,
       start_cursor: pagination.startCursor,
       sorts: [
@@ -205,13 +205,13 @@ export async function getNews(pageSize: number = 4, startCursor?: string) {
   try {
     // Get all items for total count (without fetching images)
     const totalResponse = await notion.databases.query({
-      database_id: process.env.NEXT_PUBLIC_NOTION_NEWS_DATABASE_ID!,
+      database_id: process.env.NOTION_NEWS_DATABASE_ID!,
       page_size: 100, // Maximum page size to get as many items as possible
     });
 
     // Get the actual paginated items
     const response = await notion.databases.query({
-      database_id: process.env.NEXT_PUBLIC_NOTION_NEWS_DATABASE_ID!,
+      database_id: process.env.NOTION_NEWS_DATABASE_ID!,
       sorts: [
         {
           property: "Tarih",
@@ -233,7 +233,7 @@ export async function getNews(pageSize: number = 4, startCursor?: string) {
                   const imageRecord = await notion.pages.retrieve({
                     page_id: image.id,
                   });
-                  return imageRecord.properties.URL.url || "";
+                  return (imageRecord as any).properties.URL.url || "";
                 } catch (error) {
                   console.error(`Error fetching image ${image.id}:`, error);
                   return "";
@@ -294,16 +294,15 @@ export async function getScheduleData(
   const getDatabaseId = (category: string): string => {
     switch (category.toLowerCase()) {
       case "basketball":
-        return process.env.NEXT_PUBLIC_NOTION_BASKETBALL_SCHEDULE_DATABASE_ID!;
+        return process.env.NOTION_BASKETBALL_SCHEDULE_DATABASE_ID!;
       case "volleyball":
-        return process.env.NEXT_PUBLIC_NOTION_VOLLEYBALL_SCHEDULE_DATABASE_ID!;
+        return process.env.NOTION_VOLLEYBALL_SCHEDULE_DATABASE_ID!;
       default:
         throw new Error(`Unknown category: ${category}`);
     }
   };
   try {
     const databaseId = getDatabaseId(category);
-    console.log("Database ID:", databaseId);
     const response = await notion.databases.query({
       database_id: databaseId,
     });
@@ -320,6 +319,169 @@ export async function getScheduleData(
     });
   } catch (error) {
     console.error(`Error fetching ${category} schedule data:`, error);
+    throw error;
+  }
+}
+export type TeamMember = {
+  name: string;
+  title: string;
+  imageUrl: string;
+};
+
+export async function getTeamMembers(): Promise<TeamMember[]> {
+  const databaseId = process.env.NOTION_OUR_TEAM_DATABASE_ID!;
+  try {
+    const response = await notion.databases.query({ database_id: databaseId });
+
+    const members = await Promise.all(
+      response.results.map(async (page: any) => {
+        const properties = page.properties;
+
+        // ✅ Get relation ID from Fotoğraf column
+        const relatedPhotoId = properties.Fotoğraf.relation[0]?.id;
+        let imageUrl = "";
+
+        if (relatedPhotoId) {
+          try {
+            // ✅ Fetch the related page from the Fotoğraflar database
+            const photoPage = await notion.pages.retrieve({
+              page_id: relatedPhotoId,
+            });
+
+            // ✅ Get the image URL from the related page (adjust property name accordingly)
+            const photoPageProperties = (photoPage as any).properties;
+            imageUrl = photoPageProperties.URL.url || "";
+          } catch (err) {
+            console.error("Error fetching related photo:", err);
+          }
+        }
+
+        return {
+          name: properties.İsim.title[0].plain_text,
+          title: properties.Ünvan.rich_text[0].plain_text,
+          imageUrl: imageUrl, // ✅ Now fetching the correct image URL
+        };
+      })
+    );
+
+    return members;
+  } catch (error) {
+    console.error("Error fetching our team data:", error);
+    throw error;
+  }
+}
+export interface Image {
+  url: string;
+}
+
+interface NotionPhotoPage {
+  properties: {
+    URL: {
+      url: string;
+    };
+    Name: {
+      title: {
+        plain_text: string;
+      }[];
+    };
+  };
+}
+
+interface NotionGalleryPage {
+  properties: {
+    Fotoğraf: {
+      relation: Array<{ id: string }>;
+    };
+  };
+}
+
+interface NotionPhotoPage {
+  properties: {
+    URL: {
+      url: string;
+    };
+    Name: {
+      title: Array<{
+        plain_text: string;
+      }>;
+    };
+  };
+}
+
+interface NotionGalleryPage {
+  properties: {
+    Fotoğraf: {
+      relation: Array<{ id: string }>;
+    };
+  };
+}
+
+export async function getGallery(category: string): Promise<Image[]> {
+  const getDatabaseId = (category: string): string => {
+    switch (category.toLowerCase()) {
+      case "volleyball":
+        return process.env.NOTION_VOLLEYBALL_GALLERY_DATABASE_ID!;
+      case "basketball":
+        return process.env.NOTION_BASKETBALL_GALLERY_DATABASE_ID!;
+      default:
+        return process.env.NOTION_MAIN_GALLERY_DATABASE_ID!;
+    }
+  };
+
+  try {
+    const databaseId = getDatabaseId(category);
+
+    // Fetch all gallery entries
+    const response = await notion.databases.query({
+      database_id: databaseId,
+    });
+
+    // Extract all photo IDs that need to be fetched
+    const photoIds = response.results
+      .map(
+        (page) =>
+          (page as unknown as NotionGalleryPage).properties.Fotoğraf.relation[0]
+            ?.id
+      )
+      .filter(Boolean);
+
+    // Fetch all related photos in parallel
+    const photoPages = await Promise.all(
+      photoIds.map(async (id) => {
+        try {
+          return await notion.pages.retrieve({ page_id: id });
+        } catch (err) {
+          console.error(`Error fetching photo with ID ${id}:`, err);
+          return null;
+        }
+      })
+    );
+
+    // Create a map of photo IDs to their data for efficient lookup
+    const photoDataMap = new Map(
+      photoPages.filter(Boolean).map((page) => [
+        page!.id,
+        {
+          url: (page as unknown as NotionPhotoPage).properties.URL.url || "",
+          name:
+            (page as unknown as NotionPhotoPage).properties.Name.title[0]
+              ?.plain_text || "",
+        },
+      ])
+    );
+
+    return response.results.map((page) => {
+      const photoId = (page as unknown as NotionGalleryPage).properties.Fotoğraf
+        .relation[0]?.id;
+      const photoData = photoId ? photoDataMap.get(photoId) : null;
+
+      return {
+        url: photoData?.url || "",
+        name: photoData?.name || "",
+      };
+    });
+  } catch (error) {
+    console.error(`Error fetching ${category} gallery:`, error);
     throw error;
   }
 }

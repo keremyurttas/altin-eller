@@ -38,7 +38,7 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6">
+            <div id="register-form" className="col-lg-6">
               <RegistrationForm />
             </div>
           </div>
