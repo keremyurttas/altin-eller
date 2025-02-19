@@ -5,6 +5,7 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Image from "next/image";
 
 const images = [
   "https://ik.imagekit.io/dyw3rzban/M%C4%B0N%C4%B0K%20TAKIM/_IGP5496.JPG?updatedAt=1739119318202",
@@ -41,7 +42,10 @@ export default function FullscreenSwiper() {
     >
       {images.map((src, index) => (
         <SwiperSlide key={index} className="relative">
-          <img
+          <Image
+            width={0}
+            height={0}
+            layout="responsive"
             src={src}
             alt={`Slide ${index + 1}`}
             className="w-full h-full object-cover"

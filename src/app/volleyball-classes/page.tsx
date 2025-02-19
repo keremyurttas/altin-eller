@@ -4,7 +4,6 @@ import { volleyballClasses } from "@/data/breadCrumbs";
 import Image from "next/image";
 import { volleyballClassesClassesCategories } from "@/data/classCategories";
 import ClassTimeTable from "@/components/ui/ClassTimeTable";
-import { volleyballTimeTableData } from "@/data/timeTables";
 import GallerySection from "@/components/ui/GallerySection";
 export default function VolleyballClasses() {
   return (
@@ -106,7 +105,7 @@ export default function VolleyballClasses() {
                             <span>Weight</span>148lbs
                           </li>
                           <li>
-                            <span>Height</span>10' 2``
+                            <span>Height</span>10&apos; 2
                           </li>
                           <li>
                             <span>Occupation</span>no-founder

@@ -1,6 +1,5 @@
 import BreadCrumbSection from "@/components/ui/BreadCrumbSection";
 import RegistrationForm from "@/components/ui/NewStudentForm";
-import NewStudentForm from "@/components/ui/NewStudentForm";
 import { contactUs } from "@/data/breadCrumbs";
 import { getTouch } from "@/data/getTouch";
 

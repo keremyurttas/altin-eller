@@ -4,7 +4,6 @@ import { basketballClasses } from "@/data/breadCrumbs";
 import Image from "next/image";
 import { basketballClassesCategories } from "@/data/classCategories";
 import ClassTimeTable from "@/components/ui/ClassTimeTable";
-import { basketballTimeTableData } from "@/data/timeTables";
 import GallerySection from "@/components/ui/GallerySection";
 export default function BasketballClasses() {
   return (
@@ -108,7 +107,7 @@ export default function BasketballClasses() {
                             <span>Weight</span>148lbs
                           </li>
                           <li>
-                            <span>Height</span>10' 2``
+                            <span>Height</span>10&apos; 2
                           </li>
                           <li>
                             <span>Occupation</span>no-founder

@@ -48,20 +48,6 @@ export default function NewsSection() {
     fetchNews(1);
   }, []);
 
-  const handlePageChange = (newPage: number) => {
-    if (!isLoading && newPage >= 1 && newPage <= totalPages) {
-      setCurrentPage(newPage);
-      // If going forward, use the stored cursor
-      if (newPage > currentPage) {
-        fetchNews(newPage, cursors[newPage - 1]);
-      } else {
-        // If going backward, recalculate from the start
-        // This is necessary because Notion's cursors are one-directional
-        fetchNews(newPage, cursors[newPage - 1]);
-      }
-    }
-  };
-
   return (
     <section className="classes-section spad">
       {newDetails && (

@@ -3,11 +3,10 @@ import { useState, useEffect } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import Lightbox from "yet-another-react-lightbox";
 import { FaTimes } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-
+import Image from "next/image";
 interface PopupProps {
   isOpen: boolean;
   onClose: () => void;
@@ -68,7 +67,7 @@ export default function Popup({
         {/* Swiper with Navigation */}
         <div className="relative">
           <Swiper
-          className="h-[50vh] w-full"
+            className="h-[50vh] w-full"
             modules={[Autoplay, Navigation, Pagination]}
             spaceBetween={0}
             slidesPerView={1}
@@ -82,7 +81,10 @@ export default function Popup({
           >
             {images.map((image, index) => (
               <SwiperSlide key={index} className="relative">
-                <img
+                <Image
+                  width={0}
+                  height={0}
+                  layout="responsive"
                   src={image.url}
                   alt={`Slide ${index + 1}`}
                   className="w-full h-full object-cover rounded-md"

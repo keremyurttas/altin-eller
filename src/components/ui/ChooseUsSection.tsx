@@ -1,7 +1,4 @@
 import { Item } from "@/data/chooseUsItems";
-import { JSX } from "react";
-import { FaHeartbeat } from "react-icons/fa";
-import { FaAppleWhole, FaBasketball, FaVolleyball } from "react-icons/fa6";
 
 type Props = {
   items: Item[];

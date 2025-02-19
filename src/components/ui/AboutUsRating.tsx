@@ -1,13 +1,8 @@
 "use client";
-
-import Image from "next/image";
 import { useEffect } from "react";
-import dynamic from "next/dynamic";
 import { useState } from "react";
 
 export default function AboutUsRating() {
-  const [isOpen, setIsOpen] = useState(false);
-
   useEffect(() => {
     // Manually trigger animation for the progress bars
     const bars = document.querySelectorAll(".fill");
@@ -32,14 +27,7 @@ export default function AboutUsRating() {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
-            >
-              <button
-                className="play-btn video-popup"
-                onClick={() => setIsOpen(true)}
-              >
-                <i className="fa fa-caret-right"></i>
-              </button>
-            </div>
+            ></div>
           </div>
 
           {/* About Us Section */}

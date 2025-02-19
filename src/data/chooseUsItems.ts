@@ -1,13 +1,8 @@
-import { JSX } from "react";
-import {
-  FaBasketball,
-  FaVolleyball,
-  FaAppleWhole,
-} from "react-icons/fa6";
+import { FaBasketball, FaVolleyball, FaAppleWhole } from "react-icons/fa6";
 import { FaHeartbeat } from "react-icons/fa";
 
 export type Item = {
-  icon: typeof FaBasketball;  // Using a specific icon type as reference
+  icon: typeof FaBasketball; // Using a specific icon type as reference
   title: string;
   description: string;
 };

@@ -4,7 +4,6 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { galleryItems } from "@/data/galleryItems";
 import { useEffect, useState } from "react";
 import { TeamMember } from "@/lib/notion";
 

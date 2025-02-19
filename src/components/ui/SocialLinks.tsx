@@ -1,15 +1,5 @@
-import { type FC } from "react";
-import { type LucideIcon } from "lucide-react";
 import { socialLinks } from "@/data/socialLinks";
-type SocialLink = {
-  icon: LucideIcon;
-  href: string;
-  label: string;
-};
 
-interface SocialLinksProps {
-  socialLinks: SocialLink[];
-}
 type Props = {
   size: "small" | "large";
 };
@@ -22,7 +12,13 @@ const SocialLinks = (props: Props) => {
           <a
             key={label}
             href={href}
-            className={`text-gray-400 hover:text-primary transition-colors duration-200 ${props.size==="small"? "ml-2": props.size==="large"? "ml-6": ""}`}
+            className={`text-gray-400 hover:text-primary transition-colors duration-200 ${
+              props.size === "small"
+                ? "ml-2"
+                : props.size === "large"
+                ? "ml-6"
+                : ""
+            }`}
             aria-label={label}
           >
             <Icon

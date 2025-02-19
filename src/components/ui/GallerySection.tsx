@@ -19,23 +19,24 @@ export default function GallerySection(props: Props) {
   const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
+    const fetchGallery = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch(
+          "/api/get-gallery?category=" + props.category
+        );
+        const data = await response.json();
+        setGalleryItems(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
     fetchGallery();
-  }, []);
-  const fetchGallery = async () => {
-    setIsLoading(true);
-    try {
-      const response = await fetch(
-        "/api/get-gallery?category=" + props.category
-      );
-      const data = await response.json();
-      setGalleryItems(data);
-      console.log(data);
-    } catch (error) {
-      console.error("Error:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  }, [props.category]);
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-[400px]">

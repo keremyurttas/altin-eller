@@ -3,14 +3,10 @@
 import { New } from "@/data/news";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import NewDetailPopup from "@/components/ui/NewDetailsPopup";
 import BreadCrumbSection from "@/components/ui/BreadCrumbSection";
 import { news as newBreadCrumb } from "@/data/breadCrumbs";
 import { Loader2 } from "lucide-react";
-type Props = {
-  news: New[];
-};
 
 export default function Page() {
   const [popupOpen, setPopupOpen] = useState(true);
@@ -72,7 +68,7 @@ export default function Page() {
       1,
       currentPage - Math.floor(maxVisibleButtons / 2)
     );
-    let endPage = Math.min(totalPages, startPage + maxVisibleButtons - 1);
+    const endPage = Math.min(totalPages, startPage + maxVisibleButtons - 1);
 
     if (endPage - startPage + 1 < maxVisibleButtons) {
       startPage = Math.max(1, endPage - maxVisibleButtons + 1);
