@@ -41,9 +41,10 @@ export default function FilesPage() {
 
   // Fetch categories when sport changes
   useEffect(() => {
-    sport.length > 0 && fetchCategories(sport);
+    if (sport.length > 0) {
+      fetchCategories(sport);
+    }
   }, [sport]);
-
   const fetchCategories = async (selectedSport: string) => {
     setIsLoading(true);
     setError(null);
@@ -132,7 +133,10 @@ export default function FilesPage() {
 
           {/* Category Filter */}
           <div className="space-y-2">
-            <label htmlFor="category" className="block text-xl font-medium text-white">
+            <label
+              htmlFor="category"
+              className="block text-xl font-medium text-white"
+            >
               Kayıt tipi
             </label>
             <select

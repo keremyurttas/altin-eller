@@ -11,10 +11,7 @@ export default function NewsSection() {
   const [popupOpen, setPopupOpen] = useState(true);
   const [news, setNews] = useState<New[]>([]);
   const [newDetails, setNewDetails] = useState<New | null>(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [cursors, setCursors] = useState<(string | null)[]>([null]); // Store cursors for each page
   const itemsPerPage = 5;
 
   const fetchNews = async (page: number, cursor?: string | null) => {
@@ -28,15 +25,7 @@ export default function NewsSection() {
       const data = await response.json();
 
       setNews(data.items);
-      setTotalPages(Math.ceil(data.total / itemsPerPage));
       // Store the next cursor for the next page
-      if (data.nextCursor) {
-        setCursors((prev) => {
-          const newCursors = [...prev];
-          newCursors[page] = data.nextCursor;
-          return newCursors;
-        });
-      }
     } catch (error) {
       console.error("Error:", error);
     } finally {
