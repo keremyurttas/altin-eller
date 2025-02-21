@@ -3,7 +3,7 @@ import { useState } from "react";
 import { navLinks } from "@/data/navLInks";
 import Link from "next/link";
 import Image from "next/image";
-import logoImg from "@/app/assets/images/output.png";
+import logoImg from "@/app/assets/images/altineller-logo.svg";
 import SocialLinks from "../ui/SocialLinks";
 
 export default function MobileNavbar() {
@@ -28,7 +28,7 @@ export default function MobileNavbar() {
       ></div>
 
       {/* Mobile Logo */}
-      <div className="logo md:hidden">
+      <div className="logo lg:hidden">
         <Link href="/" aria-label="KULÜP">
           <Image
             width={80}
@@ -121,7 +121,7 @@ export default function MobileNavbar() {
       </div>
 
       {/* Mobile Menu Button */}
-      <div onClick={() => setIsOpen(true)} className="canvas-open">
+      <div onClick={() => setIsOpen(true)} className="canvas-open lg:hidden">
         <i className="fa fa-bars"></i>
       </div>
     </>

@@ -351,11 +351,17 @@ ol {
 .nav-menu {
   text-align: center;
 }
+.nav-menu ul {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
 
 .nav-menu ul li {
   list-style: none;
   display: inline-block;
-  margin-right: 20px;
+  white-space: nowrap;
   position: relative;
   z-index: 1;
 }
@@ -374,6 +380,7 @@ ol {
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
+  display: block;
 }
 
 .nav-menu ul li .dropdown li {
@@ -474,14 +481,14 @@ ol {
 }
 
 .to-social {
-  display: inline-block;
+  display: flex;
+  justify-content: end;
 }
 
 .to-social a {
   display: inline-block;
   color: #ffffff;
   font-size: 16px;
-  margin-left: 15px;
 }
 
 .offcanvas-menu-wrapper {
@@ -489,12 +496,29 @@ ol {
 }
 
 .canvas-open {
-  display: none;
+  position: absolute;
+  right: 40px;
+  top: 61px;
+  font-size: 22px;
+  width: 30px;
+  height: 30px;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 2px;
+  line-height: 29px;
+  text-align: center;
+  z-index: 1;
+  display: block;
+  cursor: pointer;
 }
 
 /*---------------------
   Hero Section
 -----------------------*/
+
+.hi-text {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
 
 .hi-text span {
   position: relative;
@@ -698,7 +722,7 @@ ol {
   font-weight: 700;
   max-width: 80%;
 }
-.class-item .ci-text .date{
+.class-item .ci-text .date {
   font-weight: 400;
   opacity: 0.8;
   font-size: 14px;
@@ -1162,7 +1186,7 @@ ol {
 .gt-text.email p {
   padding-top: 20px;
 }
-.gt-text a{
+.gt-text a {
   font-size: 15px;
   font-weight: 200;
   cursor: pointer;
@@ -2673,11 +2697,11 @@ ol {
 -----------------------*/
 
 .section-404 {
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   height: 100%;
   z-index: 999;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgb(0, 0, 0);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2886,22 +2910,7 @@ ol {
   .offcanvas-menu-overlay.active {
     visibility: visible;
   }
-  .canvas-open {
-    position: absolute;
-    right: 40px;
-    top: 61px;
-    font-size: 22px;
-    width: 30px;
-    height: 30px;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    border-radius: 2px;
-    line-height: 29px;
-    text-align: center;
-    z-index: 1;
-    display: block;
-    cursor: pointer;
-  }
+
   .offcanvas-menu-wrapper {
     position: fixed;
     left: -300px;
@@ -3032,22 +3041,7 @@ ol {
   .offcanvas-menu-overlay.active {
     visibility: visible;
   }
-  .canvas-open {
-    position: absolute;
-    right: 40px;
-    top: 61px;
-    font-size: 22px;
-    width: 30px;
-    height: 30px;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    border-radius: 2px;
-    line-height: 29px;
-    text-align: center;
-    z-index: 1;
-    display: block;
-    cursor: pointer;
-  }
+
   .offcanvas-menu-wrapper {
     position: fixed;
     left: -300px;

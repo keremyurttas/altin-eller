@@ -6,17 +6,21 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useEffect, useState } from "react";
 import { TeamMember } from "@/lib/notion";
+import { Loader2 } from "lucide-react";
 
 export default function TeamSection() {
+  const [loading, setLoading] = useState(false);
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
   useEffect(() => {
+    setLoading(true);
     fetch("/api/get-team-members")
       .then((response) => response.json())
       .then((data) => {
         setTeamMembers(data);
-        console.log(data);
+        setLoading(false);
       });
   }, []);
+
   return (
     <section className="team-section spad">
       <div className="container">
@@ -37,55 +41,61 @@ export default function TeamSection() {
           </div>
         </div>
         <div className="relative pb-12">
-          <div className="swiper-container overflow-hidden">
-            <Swiper
-              modules={[Pagination, Autoplay, Navigation]}
-              slidesPerView={3}
-              slidesPerGroup={3}
-              spaceBetween={20}
-              navigation={{
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-              }}
-              speed={1000}
-              pagination={{
-                clickable: true,
-                el: ".swiper-pagination",
-              }}
-              autoplay={{
-                delay: 10000,
-                disableOnInteraction: false,
-              }}
-              loop={true}
-              breakpoints={{
-                1024: { slidesPerView: 3, slidesPerGroup: 3 },
-                768: { slidesPerView: 2, slidesPerGroup: 2 },
-                0: { slidesPerView: 1, slidesPerGroup: 1 },
-              }}
-            >
-              {teamMembers.map((item, index) => (
-                <SwiperSlide key={index}>
-                  <div
-                    key={index}
-                    className="ts-item"
-                    style={{
-                      backgroundImage: `url(${item.imageUrl})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                  >
-                    <div className="ts_text">
-                      <h4>{item.name}</h4>
-                      <span className="text-primary">{item.title}</span>
+          {loading || teamMembers.length === 0 ? (
+            <div className="flex justify-center items-center min-h-[400px]">
+              <Loader2 className="w-8 h-8 animate-spin text-white" />
+            </div>
+          ) : (
+            <div className="swiper-container overflow-hidden">
+              <Swiper
+                modules={[Pagination, Autoplay, Navigation]}
+                slidesPerView={3}
+                slidesPerGroup={3}
+                spaceBetween={20}
+                navigation={{
+                  nextEl: ".swiper-button-next",
+                  prevEl: ".swiper-button-prev",
+                }}
+                speed={1000}
+                pagination={{
+                  clickable: true,
+                  el: ".swiper-pagination",
+                }}
+                autoplay={{
+                  delay: 10000,
+                  disableOnInteraction: false,
+                }}
+                loop={true}
+                breakpoints={{
+                  1024: { slidesPerView: 3, slidesPerGroup: 3 },
+                  768: { slidesPerView: 2, slidesPerGroup: 2 },
+                  0: { slidesPerView: 1, slidesPerGroup: 1 },
+                }}
+              >
+                {teamMembers.map((item, index) => (
+                  <SwiperSlide key={index}>
+                    <div
+                      key={index}
+                      className="ts-item"
+                      style={{
+                        backgroundImage: `url(${item.imageUrl})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }}
+                    >
+                      <div className="ts_text">
+                        <h4>{item.name}</h4>
+                        <span className="text-primary">{item.title}</span>
+                      </div>
                     </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            <div className="swiper-pagination"></div>
-            <div className="swiper-button-next"></div>
-            <div className="swiper-button-prev"></div>
-          </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+              <div className="swiper-pagination"></div>
+              <div className="swiper-button-next"></div>
+              <div className="swiper-button-prev"></div>
+            </div>
+          )}
         </div>
       </div>
 

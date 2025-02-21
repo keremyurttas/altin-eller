@@ -10,7 +10,11 @@ import { pricingCards } from "@/data/pricingCards";
 import GallerySection from "@/components/ui/GallerySection";
 
 import TeamSection from "@/components/ui/TeamSection";
-
+import { getMetadata } from "@/lib/metadata";
+import { Metadata } from "next";
+export async function generateMetadata(): Promise<Metadata> {
+  return getMetadata("/");
+}
 export default function Home() {
   return (
     <>

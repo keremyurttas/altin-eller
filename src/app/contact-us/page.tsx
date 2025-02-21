@@ -2,7 +2,12 @@ import BreadCrumbSection from "@/components/ui/BreadCrumbSection";
 import RegistrationForm from "@/components/ui/NewStudentForm";
 import { contactUs } from "@/data/breadCrumbs";
 import { getTouch } from "@/data/getTouch";
+import { getMetadata } from "@/lib/metadata";
+import { Metadata } from "next";
 
+export async function generateMetadata(): Promise<Metadata> {
+  return getMetadata("contactUs");
+}
 export default function Page() {
   return (
     <>

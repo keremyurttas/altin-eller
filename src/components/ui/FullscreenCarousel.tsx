@@ -29,10 +29,10 @@ export default function FullscreenSwiper() {
 
   return (
     <Swiper
+      aria-label="Ana Sayfa Resimleri"
       modules={[Autoplay, Navigation, Pagination]}
       spaceBetween={0}
       slidesPerView={1}
-      autoplay={{ delay: 8000, disableOnInteraction: false }}
       loop={true}
       navigation={!isMobile}
       pagination={isMobile ? { clickable: true } : false}
@@ -50,6 +50,14 @@ export default function FullscreenSwiper() {
             alt={`Slide ${index + 1}`}
             className="w-full h-full object-cover"
           />
+          <div className="absolute right-0 top-0 h-[150%] w-[80%] sm:w-[60%] rotate-[15deg] transform origin-bottom-right bg-gradient-to-r from-black/40 via-primary/50 to-primary/70">
+            <div className="w-1/3 bg-black h-full opacity-40"></div>
+            <div className="w-1/3 bg-primary opacity-50 h-full "></div>
+            <div className="w-2/3 bg-primary h-full opacity-70"></div>
+          </div>
+
+          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+
           <div className="container absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white p-8 md:p-0">
             <div className="row">
               <div className="col-lg-6 offset-lg-6">

@@ -16,6 +16,8 @@ export default function BreadCrumbSection(crumbDetails: Props) {
     >
       <div className="container">
         <div className="row">
+          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+
           <div className="col-lg-12 text-center">
             <div className="breadcrumb-text">
               <h2>{crumbDetails.title.toLocaleUpperCase("tr-TR")}</h2>

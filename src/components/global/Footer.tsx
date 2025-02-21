@@ -1,11 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import logoImg from "@/app/assets/images/output.png";
+import logoImg from "@/app/assets/images/altineller-logo.svg";
 import SocialLinks from "../ui/SocialLinks";
 
 export default function Footer() {
-
-
   return (
     <footer className="bg-black py-8">
       <div className="container mx-auto px-4">
@@ -13,17 +11,17 @@ export default function Footer() {
           <div className="flex-shrink-0">
             <Link href="/" className="block" aria-label="KULÜP">
               <Image
-                width={120}
-                height={120}
+              width={120}
+              height={120}
                 src={logoImg}
                 alt="Altın Eller Spor Kulübü"
-                className="w-auto object-contain"
+                className="w-auto object-contain !h-32 "
               />
             </Link>
           </div>
 
           <div className="flex gap-6">
-          <SocialLinks size="large"/>
+            <SocialLinks size="large" />
           </div>
 
           <div className="text-center md:text-right">

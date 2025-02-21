@@ -18,6 +18,16 @@ export default function GallerySection(props: Props) {
   const [index, setIndex] = useState(0);
   const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   useEffect(() => {
     const fetchGallery = async () => {
       setIsLoading(true);
@@ -47,31 +57,33 @@ export default function GallerySection(props: Props) {
   return (
     <div className="gallery-section">
       <div className="gallery">
-        {galleryItems.map((item, index) => {
-          return (
-            <div
-              key={index}
-              onClick={() => {
-                setIndex(index);
-                setOpen(true);
-              }}
-              className={
-                index == 0 || index == galleryItems.length - 1
-                  ? "gs-item grid-wide "
-                  : "gs-item "
-              }
-              style={{
-                backgroundImage: `url(${item.url})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <div className="thumb-icon">
-                <i className="fa fa-picture-o"></i>
+        {galleryItems
+          .slice(0, isMobile ? 3 : galleryItems.length)
+          .map((item, index) => {
+            return (
+              <div
+                key={index}
+                onClick={() => {
+                  setIndex(index);
+                  setOpen(true);
+                }}
+                className={
+                  index == 0 || index == galleryItems.length - 1
+                    ? "gs-item grid-wide "
+                    : "gs-item "
+                }
+                style={{
+                  backgroundImage: `url(${item.url})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                <div className="thumb-icon">
+                  <i className="fa fa-picture-o"></i>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
 
         {/* Lightbox */}
         <Lightbox

@@ -5,6 +5,11 @@ import Image from "next/image";
 import { volleyballClassesClassesCategories } from "@/data/classCategories";
 import ClassTimeTable from "@/components/ui/ClassTimeTable";
 import GallerySection from "@/components/ui/GallerySection";
+import { getMetadata } from "@/lib/metadata";
+import { Metadata } from "next";
+export async function generateMetadata(): Promise<Metadata> {
+  return getMetadata("volleyballClasses");
+}
 export default function VolleyballClasses() {
   return (
     <>
