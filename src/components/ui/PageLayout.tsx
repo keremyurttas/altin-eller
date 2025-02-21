@@ -2,7 +2,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, Children, cloneElement } from "react";
+import { useRef, Children } from "react";
 
 import { ReactNode } from "react";
 

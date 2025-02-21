@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function NotFound() {
   return (
     <section className="section-404">
@@ -11,9 +13,9 @@ export default function NotFound() {
                 Aradığınız sayfa mevcut değil, silinmiş veya adı değiştirilmiş.
               </p>
 
-              <a href="/">
+              <Link href="/">
                 <i className="fa fa-home text-3xl"></i> Ana Sayfaya Dön
-              </a>
+              </Link>
             </div>
           </div>
         </div>
