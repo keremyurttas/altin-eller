@@ -1,5 +1,6 @@
 import BreadCrumbSection from "@/components/ui/BreadCrumbSection";
 import RegistrationForm from "@/components/ui/NewStudentForm";
+import PageLayout from "@/components/ui/PageLayout";
 import { contactUs } from "@/data/breadCrumbs";
 import { getTouch } from "@/data/getTouch";
 import { getMetadata } from "@/lib/metadata";
@@ -10,7 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 export default function Page() {
   return (
-    <>
+    <PageLayout>
       <BreadCrumbSection {...contactUs} />
       <section className="contact-section spad">
         <div className="container">
@@ -54,6 +55,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-    </>
+    </PageLayout>
   );
 }

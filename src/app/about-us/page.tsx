@@ -2,6 +2,7 @@ import AboutUsRating from "@/components/ui/AboutUsRating";
 import BannerSection from "@/components/ui/BannerSection";
 import BreadCrumbSection from "@/components/ui/BreadCrumbSection";
 import ChooseUsSection from "@/components/ui/ChooseUsSection";
+import PageLayout from "@/components/ui/PageLayout";
 import TeamSection from "@/components/ui/TeamSection";
 import { homepageBanner } from "@/data/banners";
 import { aboutUs } from "@/data/breadCrumbs";
@@ -13,12 +14,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 export default function About() {
   return (
-    <>
+    <PageLayout>
       <BreadCrumbSection {...aboutUs} />
       <ChooseUsSection items={chooseUsItems} />
       <AboutUsRating />
       <TeamSection />
       <BannerSection {...homepageBanner} />
-    </>
+    </PageLayout>
   );
 }

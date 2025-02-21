@@ -50,7 +50,7 @@ export default function FullscreenSwiper() {
             alt={`Slide ${index + 1}`}
             className="w-full h-full object-cover"
           />
-          <div className="absolute right-0 top-0 h-[150%] w-[80%] sm:w-[60%] rotate-[15deg] transform origin-bottom-right bg-gradient-to-r from-black/40 via-primary/50 to-primary/70">
+          <div className="absolute -right-10 -top-40 h-[200%] w-[50%] sm:w-[50%] rotate-[15deg] transform flex">
             <div className="w-1/3 bg-black h-full opacity-40"></div>
             <div className="w-1/3 bg-primary opacity-50 h-full "></div>
             <div className="w-2/3 bg-primary h-full opacity-70"></div>

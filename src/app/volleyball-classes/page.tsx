@@ -7,12 +7,13 @@ import ClassTimeTable from "@/components/ui/ClassTimeTable";
 import GallerySection from "@/components/ui/GallerySection";
 import { getMetadata } from "@/lib/metadata";
 import { Metadata } from "next";
+import PageLayout from "@/components/ui/PageLayout";
 export async function generateMetadata(): Promise<Metadata> {
   return getMetadata("volleyballClasses");
 }
 export default function VolleyballClasses() {
   return (
-    <>
+    <PageLayout>
       <BreadCrumbSection {...volleyballClasses} />
       <section className="class-details-section spad">
         <div className="container">
@@ -150,6 +151,6 @@ export default function VolleyballClasses() {
       </section>
       <ClassTimeTable category="volleyball" />
       <GallerySection category="volleyball" />
-    </>
+    </PageLayout>
   );
 }

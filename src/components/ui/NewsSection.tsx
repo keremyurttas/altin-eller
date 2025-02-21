@@ -6,6 +6,45 @@ import NewDetailPopup from "./NewDetailsPopup";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
+const NewsSkeleton = ({ index }: { index: number }) => {
+  return (
+    <div
+      className={
+        index < 2
+          ? "col-lg-6"
+          : index === 1
+          ? "col-lg-6 col-md-6"
+          : "col-lg-4 col-md-6"
+      }
+    >
+      <div className="class-item">
+        <div className="ci-pic relative">
+          <div className="animate-pulse bg-gray-800 w-full h-[250px] flex items-center justify-center">
+            <Loader2 className="w-8 h-8 animate-spin text-white" />
+          </div>
+        </div>
+        <div className="ci-text flex flex-col justify-between min-h-[100px] md:min-h-[130px] lg:min-h-[150px] p-4">
+          <div className="flex justify-between items-center">
+            <div className="animate-pulse bg-gray-300 h-6 w-2/3 rounded" />
+            <div className="animate-pulse bg-gray-300 h-4 w-1/4 rounded" />
+          </div>
+          <div className="ci-text-bottom-container flex justify-between items-center mt-4">
+            <div className="space-y-2 w-full">
+              <div className="animate-pulse bg-gray-300 h-4 w-full rounded" />
+              <div className="animate-pulse bg-gray-300 h-4 w-3/4 rounded" />
+            </div>
+            <div className="animate-pulse bg-gray-300 h-8 w-8 rounded" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+const ButtonSkeleton = () => (
+  <div className="w-full flex justify-center">
+    <div className="animate-pulse bg-gray-300 h-[40px] w-[120px] rounded" />
+  </div>
+);
 
 export default function NewsSection() {
   const [popupOpen, setPopupOpen] = useState(true);
@@ -68,8 +107,11 @@ export default function NewsSection() {
         </div>
 
         {isLoading ? (
-          <div className="flex justify-center items-center min-h-[400px]">
-            <Loader2 className="w-8 h-8 animate-spin text-white" />
+          <div className="row">
+            {[...Array(5)].map((_, index) => (
+              <NewsSkeleton key={index} index={index} />
+            ))}
+            <ButtonSkeleton />
           </div>
         ) : (
           <div className="row">

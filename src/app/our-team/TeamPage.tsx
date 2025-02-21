@@ -1,5 +1,6 @@
 "use client";
 import BreadCrumbSection from "@/components/ui/BreadCrumbSection";
+import PageLayout from "@/components/ui/PageLayout";
 import { ourTeam } from "@/data/breadCrumbs";
 
 import { TeamMember } from "@/lib/notion";
@@ -20,7 +21,7 @@ export default function Page() {
       });
   }, []);
   return (
-    <>
+    <PageLayout>
       <BreadCrumbSection {...ourTeam} />
       <section className="team-section team-page spad">
         <div className="container">
@@ -68,6 +69,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-    </>
+    </PageLayout>
   );
 }

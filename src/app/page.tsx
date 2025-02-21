@@ -12,12 +12,13 @@ import GallerySection from "@/components/ui/GallerySection";
 import TeamSection from "@/components/ui/TeamSection";
 import { getMetadata } from "@/lib/metadata";
 import { Metadata } from "next";
+import PageLayout from "@/components/ui/PageLayout";
 export async function generateMetadata(): Promise<Metadata> {
   return getMetadata("/");
 }
 export default function Home() {
   return (
-    <>
+    <PageLayout>
       <FullscreenCarousel />
       <ChooseUsSection items={chooseUsItems} />
       <NewsSection />
@@ -25,6 +26,6 @@ export default function Home() {
       <PricingSection pricingCards={pricingCards} />
       <GallerySection category="main" />
       <TeamSection />
-    </>
+    </PageLayout>
   );
 }
