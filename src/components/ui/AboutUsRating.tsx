@@ -33,26 +33,26 @@ export default function AboutUsRating() {
           <div className="col-lg-6 p-0">
             <div className="about-text">
               <div className="section-title">
-                <span>About Us</span>
-                <h2>What we have done</h2>
+                <span>Hakkımızda</span>
+                <h2>ÖZGÜVENE GİDEN İLK ADIM</h2>
               </div>
               <div className="at-desc">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
-                  maecenas accumsan lacus vel facilisis. Aliquip ex ea commodo
-                  consequat sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor.
+                  Deneyimli ve dinamik eğitmen kadromuz, çocuklarımızla birlikte
+                  öncelikle özgüven ile temel branş tekniklerini geliştirmek,
+                  sonrasında ise takım ruhu ve mücadeleci karakterlerini ortaya
+                  çıkarmak amacıyla etkili yöntemler kullanarak çalışmaktadır.
+                  Çocuklarımızın kendilerini özgüvenle ifade ederek sınırlarını
+                  keşfetmelerini sağlamak, kurumumuzun temel misyonlarındandır.
                 </p>
               </div>
 
               {/* Progress Bars */}
               <div className="about-bar">
                 {[
-                  { title: "Body building", percentage: 80 },
-                  { title: "Training", percentage: 85 },
-                  { title: "Fitness", percentage: 75 },
+                  { title: "Özgüven", percentage: 100 },
+                  { title: "Eğlence", percentage: 100 },
+                  { title: "Fiziksel Gelişim", percentage: 100 },
                 ].map((item, index) => (
                   <div className="ab-item" key={index}>
                     <p>{item.title}</p>
@@ -62,8 +62,11 @@ export default function AboutUsRating() {
                         data-percentage={item.percentage}
                         style={{
                           width: "0%",
-                          transition: "width 1.5s ease-in-out",
+                          transition: "width 3s ease-in-out",
                         }}
+                        aria-valuenow={item.percentage}
+                        aria-valuemin={0}
+                        aria-valuemax={100}
                       ></span>
                       <div className="tipWrap font-mulish">
                         <span className="tip">{item.percentage}%</span>

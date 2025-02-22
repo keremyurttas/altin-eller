@@ -29,11 +29,11 @@ export default function Page() {
             <div className="col-lg-12">
               <div className="team-title">
                 <div className="section-title">
-                  <span>Our Team</span>
-                  <h2>TRAIN WITH EXPERTS</h2>
+                  <span>Ekibimiz</span>
+                  <h2>PROFESYONELLERLE ÇALIŞIN</h2>
                 </div>
                 <a href="#" className="primary-btn btn-normal appoinment-btn">
-                  appointment
+                  KAYIT OL
                 </a>
               </div>
             </div>
@@ -47,7 +47,7 @@ export default function Page() {
               <>
                 {teamMembers.map((member, index) => {
                   return (
-                    <div key={index} className="col-lg-4 col-sm-6">
+                    <div key={index} className="col-lg-4 col-sm-6 hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer">
                       <div
                         className="ts-item set-bg"
                         style={{
@@ -56,7 +56,7 @@ export default function Page() {
                           backgroundPosition: "center",
                         }}
                       >
-                        <div className="ts_text">
+                        <div className="ts_text team-page-text !-bottom-8">
                           <h4>{member.name}</h4>
                           <span className="text-primary">{member.title}</span>
                         </div>

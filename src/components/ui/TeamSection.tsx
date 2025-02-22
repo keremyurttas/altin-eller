@@ -5,18 +5,29 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useEffect, useState } from "react";
-import { TeamMember } from "@/lib/notion";
+import { TeamMember } from "@/lib/notion"; // Ensure this includes imageUrl, name, title
 import { Loader2 } from "lucide-react";
+import Link from "next/link";
 
 export default function TeamSection() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
+
   useEffect(() => {
-    setLoading(true);
     fetch("/api/get-team-members")
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
       .then((data) => {
         setTeamMembers(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching team members:", error);
+      })
+      .finally(() => {
         setLoading(false);
       });
   }, []);
@@ -31,12 +42,12 @@ export default function TeamSection() {
                 <span>EKİBİMİZ</span>
                 <h2>PROFESYONELLERLE ÇALIŞIN</h2>
               </div>
-              <a
-                href="/contact-us#register-form"
-                className="primary-btn btn-normal appoinment-btn font-mulish"
+              <Link
+                href="/our-team"
+                className="primary-btn btn-normal appoinment-btn font-mulish hover:text-white"
               >
-                KAYIT OL
-              </a>
+                TÜM EKİBİMİZ
+              </Link>
             </div>
           </div>
         </div>
@@ -75,13 +86,13 @@ export default function TeamSection() {
                 {teamMembers.map((item, index) => (
                   <SwiperSlide key={index}>
                     <div
-                      key={index}
                       className="ts-item"
                       style={{
                         backgroundImage: `url(${item.imageUrl})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                       }}
+                      aria-label={`Team member: ${item.name}, ${item.title}`}
                     >
                       <div className="ts_text">
                         <h4>{item.name}</h4>

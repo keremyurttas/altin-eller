@@ -29,104 +29,42 @@ export default function BasketballClasses() {
                     src={
                       "https://ik.imagekit.io/dyw3rzban/K%C3%9C%C3%87%C3%9CK%20A/_IGP5264.JPG?updatedAt=1739119467711"
                     }
-                    alt="img"
+                    alt="basketol sporcuları"
                   ></Image>
                 </div>
                 <div className="cd-text">
-                  <div className="cd-single-item">
-                    <h3>Body buiding</h3>
+                  <div className="cd-single-item flex flex-col gap-4">
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                      Duis aute irure Lorem ipsum dolor sit amet, consectetur
-                      adipisicing elit, sed do eiusmod tempor incididunt ut
-                      labore et dolore magna aliqua accusantium doloremque
-                      laudantium. Excepteur sint occaecat cupidatat non proident
-                      sculpa.
+                      Basketbol bizim için sadece bir spor değil, ailemizin
+                      büyüdüğü, herkesin birbirine destek olduğu muhteşem bir
+                      macera! Antrenmanlarımızda gençlerimizle hem ter döküyor
+                      hem de bolca eğleniyoruz. Her idmanda yeni şeyler
+                      öğrenirken, bir yandan da arkadaşlıklarımızı
+                      pekiştiriyoruz.
                     </p>
-                  </div>
-                  <div className="cd-single-item">
-                    <h3>Trainer</h3>
                     <p>
-                      Dolor sit amet, consectetur adipisicing elit, sed do
-                      eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                      Duis aute irure dolor in reprehenderit in voluptate velit
-                      esse cillum dolore eu fugiat nulla pariatur officia
-                      deserunt mollit.
+                      Deneyimli koçlarımız her sporcumuzu ayrı ayrı tanıyor,
+                      onların güçlü yanlarını keşfedip parlatıyor. Herkesin
+                      kendi hızında ilerlediğini biliyoruz ve kimseyi
+                      zorlamadan, her birinizin en iyi olduğu alanda parlamasına
+                      yardımcı oluyoruz.
                     </p>
-                  </div>
-                </div>
-                <div className="cd-trainer">
-                  <div className="row">
-                    <div className="col-md-6">
-                      <div className="cd-trainer-pic">
-                        {/* <img src="img/classes/class-details/trainer-profile.jpg" alt=""> */}
-                        <Image
-                          layout="responsive"
-                          width={0}
-                          height={0}
-                          src={
-                            "https://ik.imagekit.io/dyw3rzban/K%C3%9C%C3%87%C3%9CK%20A/_IGP5264.JPG?updatedAt=1739119467711"
-                          }
-                          alt="img"
-                        ></Image>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="cd-trainer-text">
-                        <div className="trainer-title">
-                          <h4>Athart Rachel</h4>
-                          <span>Gym Trainer</span>
-                        </div>
-                        <div className="trainer-social">
-                          <a href="#">
-                            <i className="fa fa-facebook"></i>
-                          </a>
-                          <a href="#">
-                            <i className="fa fa-twitter"></i>
-                          </a>
-                          <a href="#">
-                            <i className="fa fa-youtube-play"></i>
-                          </a>
-                          <a href="#">
-                            <i className="fa fa-instagram"></i>
-                          </a>
-                          <a href="#">
-                            <i className="fa  fa-envelope-o"></i>
-                          </a>
-                        </div>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua viverra maecenas lacus vel
-                          facilisis.
-                        </p>
-                        <ul className="trainer-info">
-                          <li>
-                            <span>Age</span>35
-                          </li>
-                          <li>
-                            <span>Weight</span>148lbs
-                          </li>
-                          <li>
-                            <span>Height</span>10&apos; 2
-                          </li>
-                          <li>
-                            <span>Occupation</span>no-founder
-                          </li>
-                        </ul>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua viverra maecenas lacus vel
-                          facilisis.{" "}
-                        </p>
-                      </div>
-                    </div>
+                    <p>
+                      En büyük hedefimiz, size basketbolu sevdirirken
+                      özgüveninizi artırmak ve takım ruhunu aşılamak. Burada
+                      sadece basketbol oynamayı öğrenmiyorsunuz, aynı zamanda
+                      harika dostluklar kuruyor ve unutulmaz anılar
+                      biriktiriyorsunuz.
+                    </p>
+                    <p>
+                      Basketbol sayesinde hem fiziksel olarak güçleniyor hem de
+                      hayatta karşılaşacağınız zorluklarla başa çıkmayı
+                      öğreniyorsunuz. Biz sadece antrenör değil, aynı zamanda
+                      sizin en büyük destekçileriniziz. Salonumuzda attığınız
+                      her basket, yaptığınız her asist ve kazandığınız her maç
+                      bizim için ayrı bir gurur kaynağı. Gelin, bu muhteşem
+                      basketbol ailesinin bir parçası olun!
+                    </p>
                   </div>
                 </div>
               </div>

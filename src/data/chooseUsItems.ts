@@ -1,35 +1,30 @@
-import { FaBasketball, FaVolleyball, FaAppleWhole } from "react-icons/fa6";
-import { FaHeartbeat } from "react-icons/fa";
-
-export type Item = {
-  icon: typeof FaBasketball; // Using a specific icon type as reference
-  title: string;
-  description: string;
-};
-
+import { FaBasketball, FaVolleyball } from "react-icons/fa6";
+import { BsPersonFillUp } from "react-icons/bs";
+import { PiTrafficConeFill } from "react-icons/pi";
+import { Item } from "@/lib/types";
 export const chooseUsItems: Item[] = [
   {
     icon: FaBasketball,
     title: "Basketbol",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolore facilisis.",
+      "Her seviyeden çocuklar için eğlenceli basketbol dersleriyle oyun becerilerini geliştiriyoruz!",
   },
   {
     icon: FaVolleyball,
     title: "Voleybol",
     description:
-      "Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.",
+      "Voleybol antrenmanlarımızda, takım ruhunu ve eğlenceyi bir arada yaşarken yeteneklerinizi geliştiriyoruz.",
   },
   {
-    icon: FaAppleWhole,
-    title: "Beslenme Planı",
+    icon: BsPersonFillUp,
+    title: "Bireysel Antrenman",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolore facilisis.",
+      "Kişisel antrenmanlarımızla, ihtiyaçlarınıza göre özel programlar ile daha iyi bir sporcu olmanıza yardımcı oluyoruz.",
   },
   {
-    icon: FaHeartbeat,
-    title: "Kardiyo Programı",
+    icon: PiTrafficConeFill,
+    title: "Mevkiye Özel Antrenman",
     description:
-      "Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.",
+      "Oynadığınız pozisyona uygun özel antrenmanlarla, sahadaki performansınızı artırmayı hedefliyoruz.",
   },
 ];

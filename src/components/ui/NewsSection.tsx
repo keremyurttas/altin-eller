@@ -1,11 +1,13 @@
 "use client";
 
-import { New } from "@/data/news";
+import { New } from "@/lib/types";
 import Image from "next/image";
 import NewDetailPopup from "./NewDetailsPopup";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
+import { PLACEHOLDER_IMAGE_URL } from "@/utils/constants";
+
 const NewsSkeleton = ({ index }: { index: number }) => {
   return (
     <div
@@ -30,7 +32,7 @@ const NewsSkeleton = ({ index }: { index: number }) => {
           </div>
           <div className="ci-text-bottom-container flex justify-between items-center mt-4">
             <div className="space-y-2 w-full">
-              <div className="animate-pulse bg-gray-300 h-4 w-full rounded" />
+              <div className="animate-pulse bg-gray-300 h-4 w-4/5 rounded" />
               <div className="animate-pulse bg-gray-300 h-4 w-3/4 rounded" />
             </div>
             <div className="animate-pulse bg-gray-300 h-8 w-8 rounded" />
@@ -40,6 +42,7 @@ const NewsSkeleton = ({ index }: { index: number }) => {
     </div>
   );
 };
+
 const ButtonSkeleton = () => (
   <div className="w-full flex justify-center">
     <div className="animate-pulse bg-gray-300 h-[40px] w-[120px] rounded" />
@@ -51,6 +54,7 @@ export default function NewsSection() {
   const [news, setNews] = useState<New[]>([]);
   const [newDetails, setNewDetails] = useState<New | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const itemsPerPage = 5;
 
   const fetchNews = async (page: number, cursor?: string | null) => {
@@ -61,12 +65,16 @@ export default function NewsSection() {
           cursor ? `&cursor=${cursor}` : ""
         }`
       );
+      if (!response.ok) {
+        throw new Error("Failed to fetch news");
+      }
       const data = await response.json();
-
       setNews(data.items);
-      // Store the next cursor for the next page
     } catch (error) {
       console.error("Error:", error);
+      setError(
+        "Haberler yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+      );
     } finally {
       setIsLoading(false);
     }
@@ -100,7 +108,7 @@ export default function NewsSection() {
         <div className="row">
           <div className="col-lg-12">
             <div className="section-title">
-              <span>Our Classes</span>
+              <span>Güncel Kalın</span>
               <h2>Bizden Haberler</h2>
             </div>
           </div>
@@ -115,12 +123,16 @@ export default function NewsSection() {
           </div>
         ) : (
           <div className="row">
-            {news && news.length > 0 ? (
+            {error ? (
+              <div className="col-12 text-center">
+                <p>{error}</p>
+              </div>
+            ) : news && news.length > 0 ? (
               news.map((item: New, index) => (
                 <div
                   key={index}
                   className={
-                    index < 2
+                    index === 0
                       ? "col-lg-6"
                       : index === 1
                       ? "col-lg-6 col-md-6"
@@ -133,7 +145,7 @@ export default function NewsSection() {
                       setPopupOpen(true);
                       document.body.style.overflow = "hidden";
                     }}
-                    className="class-item  "
+                    className="class-item"
                   >
                     <div className="ci-pic">
                       <Image
@@ -143,8 +155,8 @@ export default function NewsSection() {
                         style={{ objectFit: "cover" }}
                         src={
                           Array.isArray(item.imageUrls)
-                            ? item.imageUrls[0]
-                            : item.imageUrls
+                            ? item.imageUrls[0] || PLACEHOLDER_IMAGE_URL
+                            : item.imageUrls || PLACEHOLDER_IMAGE_URL
                         }
                         alt={item.title}
                         quality={100}
@@ -161,7 +173,7 @@ export default function NewsSection() {
                         <span className="font-mulish line-clamp-2">
                           {item.description}
                         </span>
-                        <button className="p-2  bg-gray-200">
+                        <button className="p-2 bg-gray-200">
                           <i className="fa fa-angle-right"></i>
                         </button>
                       </div>
@@ -171,13 +183,16 @@ export default function NewsSection() {
               ))
             ) : (
               <div className="col-12 text-center">
-                <p>No news available</p>
+                <p>
+                  Haber bulunamadı. <Link href="/about">Hakkımızda</Link>{" "}
+                  sayfası.
+                </p>
               </div>
             )}
 
             <Link
               href="/news"
-              className="primary-btn  mx-auto hover:scale-110 transform transition duration-300 ease-in-out hover:text-white"
+              className="primary-btn mx-auto hover:scale-110 transform transition duration-300 ease-in-out hover:text-white"
               style={{ padding: "8px 16px" }}
             >
               Tüm Haberler

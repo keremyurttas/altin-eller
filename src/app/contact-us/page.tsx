@@ -18,8 +18,8 @@ export default function Page() {
           <div className="row">
             <div className="col-lg-6">
               <div className="section-title contact-title">
-                <span>Contact Us</span>
-                <h2>GET IN TOUCH</h2>
+                <span>İLETİŞİM</span>
+                <h2>BİZE ULAŞIN</h2>
               </div>
               <div className="contact-widget text-white">
                 <div className="cw-text flex items-center">

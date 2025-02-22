@@ -7,6 +7,7 @@ import { FaAnglesRight, FaAnglesLeft } from "react-icons/fa6";
 import { Thumbnails } from "yet-another-react-lightbox/plugins";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 import { Camp } from "@/lib/notion";
+import { PLACEHOLDER_IMAGE_URL } from "@/utils/constants";
 
 export default function OurCamp({ camp }: { camp: Camp }) {
   const [open, setOpen] = useState(false);
@@ -27,7 +28,7 @@ export default function OurCamp({ camp }: { camp: Camp }) {
             >
               <div className="relative w-full h-full">
                 <Image
-                  src={camp.images?.[0]?.url || "/path/to/fallback-image.jpg"}
+                  src={camp.images?.[0]?.url || PLACEHOLDER_IMAGE_URL}
                   alt={camp.title}
                   fill
                   className="object-cover "
@@ -47,7 +48,7 @@ export default function OurCamp({ camp }: { camp: Camp }) {
                           className="relative w-20 h-14 flex-shrink-0"
                         >
                           <Image
-                            src={image.url}
+                            src={image.url || PLACEHOLDER_IMAGE_URL}
                             alt={`Thumbnail ${idx + 1}`}
                             fill
                             className="object-cover rounded"
@@ -89,7 +90,11 @@ export default function OurCamp({ camp }: { camp: Camp }) {
         open={open}
         close={() => setOpen(false)}
         index={index}
-        slides={camp.images?.map((img) => ({ src: img.url })) || []}
+        slides={
+          camp.images?.length
+            ? camp.images.map((img) => ({ src: img.url }))
+            : [{ src: PLACEHOLDER_IMAGE_URL }]
+        }
         plugins={[Thumbnails]}
       />
     </>

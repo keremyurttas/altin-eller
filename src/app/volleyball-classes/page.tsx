@@ -28,103 +28,49 @@ export default function VolleyballClasses() {
                     src={
                       "https://ik.imagekit.io/dyw3rzban/K%C3%9C%C3%87%C3%9CK%20A/_IGP5264.JPG?updatedAt=1739119467711"
                     }
-                    alt="img"
+                    alt="voleybol kursumuz"
                   ></Image>
                 </div>
                 <div className="cd-text">
-                  <div className="cd-single-item">
-                    <h3>Body buiding</h3>
+                  <div className="cd-single-item flex flex-col gap-4 ">
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                      Duis aute irure Lorem ipsum dolor sit amet, consectetur
-                      adipisicing elit, sed do eiusmod tempor incididunt ut
-                      labore et dolore magna aliqua accusantium doloremque
-                      laudantium. Excepteur sint occaecat cupidatat non proident
-                      sculpa.
+                      Voleybol, yalnızca bir spor dalı değil, aynı zamanda
+                      dostlukların kurulduğu ve takım ruhunun güçlendiği bir
+                      ortamdır. Antrenmanlarımızda, çocuklarımızın mücadele
+                      ruhunu geliştirmelerine yardımcı olurken, aynı zamanda
+                      takım içindeki iletişim ve iş birliğini de artırmayı
+                      hedefliyoruz. Her antrenman, genç sporcularımız için yeni
+                      bir macera ve öğrenme fırsatı sunuyor.
                     </p>
-                  </div>
-                  <div className="cd-single-item">
-                    <h3>Trainer</h3>
+
                     <p>
-                      Dolor sit amet, consectetur adipisicing elit, sed do
-                      eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                      Duis aute irure dolor in reprehenderit in voluptate velit
-                      esse cillum dolore eu fugiat nulla pariatur officia
-                      deserunt mollit.
+                      Deneyimli antrenörlerimiz, her bir sporcunun yeteneklerini
+                      ve potansiyelini anlamak için bireysel bir yaklaşım
+                      benimsemekte. Her çocuk, kendi hızında gelişir ve
+                      antrenörlerimiz onların güçlü yönlerini ön plana çıkarmak
+                      için özveriyle çalışır. Bizim için önemli olan, her
+                      çocuğun voleybol becerilerini geliştirirken kendine
+                      güvenini artırmak ve takım içinde birbirleriyle uyumlu bir
+                      şekilde çalışabilmelerini sağlamaktır.
                     </p>
-                  </div>
-                </div>
-                <div className="cd-trainer">
-                  <div className="row">
-                    <div className="col-md-6">
-                      <div className="cd-trainer-pic">
-                        <Image
-                          layout="responsive"
-                          width={0}
-                          height={0}
-                          src={
-                            "https://ik.imagekit.io/dyw3rzban/K%C3%9C%C3%87%C3%9CK%20A/_IGP5264.JPG?updatedAt=1739119467711"
-                          }
-                          alt="img"
-                        ></Image>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="cd-trainer-text">
-                        <div className="trainer-title">
-                          <h4>Athart Rachel</h4>
-                          <span>Gym Trainer</span>
-                        </div>
-                        <div className="trainer-social">
-                          <a href="#">
-                            <i className="fa fa-facebook"></i>
-                          </a>
-                          <a href="#">
-                            <i className="fa fa-twitter"></i>
-                          </a>
-                          <a href="#">
-                            <i className="fa fa-youtube-play"></i>
-                          </a>
-                          <a href="#">
-                            <i className="fa fa-instagram"></i>
-                          </a>
-                          <a href="#">
-                            <i className="fa  fa-envelope-o"></i>
-                          </a>
-                        </div>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua viverra maecenas lacus vel
-                          facilisis.
-                        </p>
-                        <ul className="trainer-info">
-                          <li>
-                            <span>Age</span>35
-                          </li>
-                          <li>
-                            <span>Weight</span>148lbs
-                          </li>
-                          <li>
-                            <span>Height</span>10&apos; 2
-                          </li>
-                          <li>
-                            <span>Occupation</span>no-founder
-                          </li>
-                        </ul>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua viverra maecenas lacus vel
-                          facilisis.{" "}
-                        </p>
-                      </div>
-                    </div>
+
+                    <p>
+                      Bu süreçte çocuklarımız sadece teknik beceriler kazanmakla
+                      kalmaz, aynı zamanda hayat boyu sürecek dostluklar ve bir
+                      aile hissi de geliştirirler. Voleybol, onların hem
+                      fiziksel hem de sosyal gelişimlerine katkıda bulunurken,
+                      birlikte mücadele etmenin ve kazanmanın keyfini
+                      çıkarmalarını sağlar. Bizler, sporun getirdiği heyecan ve
+                      eğlencenin yanı sıra, katılımcılarımızın kendilerini
+                      değerli ve özel hissetmelerini sağlamak için buradayız.
+                    </p>
+
+                    <p>
+                      Voleybol antrenmanlarımızda her bir gülümseme, her bir
+                      alkış ve her bir başarı, birlikte attığımız adımların
+                      birer göstergesidir. Gelin, voleybol sahasında birlikte
+                      büyüyelim!
+                    </p>
                   </div>
                 </div>
               </div>

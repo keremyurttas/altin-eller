@@ -1,4 +1,5 @@
 import { socialLinks } from "@/data/socialLinks";
+import Link from "next/link";
 
 type Props = {
   size: "small" | "large";
@@ -7,9 +8,15 @@ type Props = {
 const SocialLinks = (props: Props) => {
   return (
     <>
-      <div className="to-social">
+      <div
+        className={
+          props.size === "small"
+            ? "justify-center"
+            : "justify-end" + " to-social"
+        }
+      >
         {socialLinks.map(({ icon: Icon, href, label }) => (
-          <a
+          <Link
             key={label}
             href={href}
             className={`text-gray-400 hover:text-primary transition-colors duration-200 ${
@@ -30,7 +37,7 @@ const SocialLinks = (props: Props) => {
                   : ""
               }
             />
-          </a>
+          </Link>
         ))}
       </div>
     </>

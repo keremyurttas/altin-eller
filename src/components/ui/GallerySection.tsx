@@ -6,6 +6,7 @@ import "yet-another-react-lightbox/styles.css"; // Required for Lightbox
 import "yet-another-react-lightbox/plugins/thumbnails.css"; // Required for Thumbnails
 import { useEffect } from "react";
 import { Loader2 } from "lucide-react";
+import Image from "next/image";
 type Props = {
   category: string;
 };
@@ -67,17 +68,20 @@ export default function GallerySection(props: Props) {
                   setIndex(index);
                   setOpen(true);
                 }}
-                className={
+                className={`relative ${
                   index == 0 || index == galleryItems.length - 1
-                    ? "gs-item grid-wide "
-                    : "gs-item "
-                }
-                style={{
-                  backgroundImage: `url(${item.url})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
+                    ? "gs-item grid-wide"
+                    : "gs-item"
+                }`}
               >
+                <Image
+                  src={item.url}
+                  alt={`Gallery image ${index + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
                 <div className="thumb-icon">
                   <i className="fa fa-picture-o"></i>
                 </div>

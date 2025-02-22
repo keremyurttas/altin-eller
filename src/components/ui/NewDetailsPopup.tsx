@@ -7,6 +7,8 @@ import { FaTimes } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import Image from "next/image";
+import { PLACEHOLDER_IMAGE_URL } from "@/utils/constants";
+
 interface PopupProps {
   isOpen: boolean;
   onClose: () => void;
@@ -37,6 +39,20 @@ export default function Popup({
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    const handleEscKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setFadeOut(true);
+        setTimeout(onClose, 300);
+      }
+    };
+
+    window.addEventListener("keydown", handleEscKey);
+    return () => {
+      window.removeEventListener("keydown", handleEscKey);
+    };
+  }, [onClose]);
+
   if (!visible) return null;
 
   return (
@@ -49,6 +65,8 @@ export default function Popup({
     >
       <div
         onClick={(e) => e.stopPropagation()}
+        role="dialog" // Added role for accessibility
+        aria-labelledby="popup-title"
         className={`bg-[#171717] rounded-lg shadow-lg p-10 w-full max-w-6xl h-[80vh] relative overflow-auto ${
           fadeOut ? "animate-fade-out" : "animate-fade-in"
         }`}
@@ -60,6 +78,7 @@ export default function Popup({
             setTimeout(onClose, 300);
           }}
           className="absolute top-3 right-3 text-gray-400 hover:text-primary"
+          aria-label="Kapat" // Added aria-label for accessibility
         >
           <FaTimes size={20} />
         </button>
@@ -72,22 +91,29 @@ export default function Popup({
             spaceBetween={0}
             slidesPerView={1}
             autoplay={{ delay: 8000, disableOnInteraction: false }}
-            loop={true}
+            loop={images?.length > 1} // Only enable loop if there are multiple images
             navigation={{
               nextEl: ".swiper-button-next",
               prevEl: ".swiper-button-prev",
             }}
             pagination={{ clickable: true }}
           >
-            {images.map((image, index) => (
+            {(images?.length > 0
+              ? images
+              : [{ url: PLACEHOLDER_IMAGE_URL }]
+            ).map((image, index) => (
               <SwiperSlide key={index} className="relative">
                 <Image
                   width={0}
                   height={0}
                   layout="responsive"
-                  src={image.url}
-                  alt={`Slide ${index + 1}`}
+                  src={image?.url || PLACEHOLDER_IMAGE_URL}
+                  alt={`Slayt ${index + 1}`}
+                  loading="lazy"
                   className="w-full h-full object-cover rounded-md"
+                  onError={(e) => {
+                    e.currentTarget.src = PLACEHOLDER_IMAGE_URL;
+                  }}
                 />
               </SwiperSlide>
             ))}
@@ -100,7 +126,9 @@ export default function Popup({
 
         {/* Title, Date & Description */}
         <div className="mt-4 text-mulish text-center">
-          <h2 className="text-4xl font-bold text-primary">{title}</h2>
+          <h2 id="popup-title" className="text-4xl font-bold text-primary">
+            {title}
+          </h2>
           <p className="text-gray-400 text-sm mt-1">{date.toString()}</p>
           <p className="text-[#e0e0e0] mt-3 text-lg leading-relaxed">
             {description}

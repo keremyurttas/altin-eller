@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NavLink } from "@/data/navLInks";
+import { NavLink } from "@/lib/types";
 export default function ActiveLink({ link }: { link: NavLink }) {
   const pathname = usePathname();
 
@@ -22,13 +22,15 @@ export default function ActiveLink({ link }: { link: NavLink }) {
           <ul className="dropdown">
             {link.dropdown.map((subLink, subIndex) => (
               <li key={subIndex}>
-                <Link href={subLink.href}>{subLink.label}</Link>
+                {subLink.href && (
+                  <Link href={subLink.href}>{subLink.label}</Link>
+                )}
               </li>
             ))}
           </ul>
         </>
       ) : (
-        <Link href={link.href}>{link.label}</Link>
+        <Link href={link.href || "#"}>{link.label}</Link>
       )}
     </li>
   );

@@ -18,9 +18,11 @@ export default function RegistrationForm() {
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
   const [formStatus, setFormStatus] = useState("idle");
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
   const handleSubmit = async (e: any) => {
     e.preventDefault(); // Prevent default form submission behavior
 
@@ -86,6 +88,7 @@ export default function RegistrationForm() {
       setIsLoading(false); // Set loading state to false after submission attempt
     }
   };
+
   const handlePhoneChange = (e: any) => {
     let value = e.target.value.replace(/\D/g, ""); // Remove all non-digit characters
     if (value.startsWith("90")) {

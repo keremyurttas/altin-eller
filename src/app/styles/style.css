@@ -181,6 +181,10 @@ ol {
   text-transform: uppercase;
   font-weight: 700;
 }
+.primary-btn:hover {
+  color: #ffffff;
+ 
+}
 
 .primary-btn.btn-normal {
   -webkit-transition: all 0.3s;
@@ -191,6 +195,9 @@ ol {
 .primary-btn.btn-normal:hover {
   background: var(--primary);
   border-color: var(--primary);
+}
+.primary-btn.appoinment-btn:hover {
+  color: white;
 }
 
 /* Preloder */
@@ -336,10 +343,10 @@ ol {
   width: 100%;
   padding: 0 15px;
   padding-top: 55px;
-  z-index: 99;
+  z-index: 10;
   background: linear-gradient(
     to bottom,
-    rgba(11, 21, 43, 0.4),
+    rgba(11, 21, 43, 0.1),
     rgba(0, 0, 0, 0)
   );
 }
@@ -482,7 +489,6 @@ ol {
 
 .to-social {
   display: flex;
-  justify-content: end;
 }
 
 .to-social a {
@@ -503,7 +509,8 @@ ol {
   width: 30px;
   height: 30px;
   color: #ffffff;
-  border: 1px solid #ffffff;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 2px;
   line-height: 29px;
   text-align: center;
@@ -924,8 +931,10 @@ ol {
 .ps-item .thumb-icon {
   font-size: 48px;
   color: var(--primary);
-  position: absolute;
-  left: 50px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   bottom: 120px;
   -webkit-transform: skewY(4deg);
   -ms-transform: skewY(4deg);
@@ -1096,6 +1105,9 @@ ol {
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
+}
+.ts-item:hover .team-page-text {
+  border-color: var(--primary);
 }
 
 .ts-item .ts_text h4 {
@@ -1313,7 +1325,7 @@ ol {
   padding-top: 230px;
 }
 
-.breadcrumb-text h2 {
+.breadcrumb-text h1 {
   font-size: 60px;
   color: #ffffff;
   font-weight: 600;
@@ -1544,7 +1556,7 @@ ol {
   right: 0;
 }
 
-.ss-text h4 {
+.ss-text h3 {
   font-size: 22px;
   color: #ffffff;
   font-weight: 600;
@@ -2722,7 +2734,7 @@ ol {
   margin-bottom: 15px;
 }
 
-.text-404 h3 {
+.text-404 h2 {
   color: #ffffff;
   font-weight: 500;
   margin-bottom: 20px;
@@ -2877,7 +2889,6 @@ ol {
   }
   .ss-text {
     padding: 72px 60px;
-    margin-bottom: 30px;
   }
   .class-item .ci-text:after {
     width: 750px;
@@ -3271,5 +3282,18 @@ ol {
   }
   .search-model-form input {
     font-size: 28px;
+  }
+}
+.hoop-animation {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-40px);
   }
 }

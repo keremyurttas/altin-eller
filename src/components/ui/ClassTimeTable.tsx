@@ -1,10 +1,10 @@
-'use client';
+"use client";
 import React, { useEffect, useState } from "react";
 import type { VolleyballSchedule } from "@/lib/notion";
 
 const convertTimeToMinutes = (timeString: string) => {
-  const [time] = timeString.split('-'); // Take only the start time "18:00" from "18:00-19:00"
-  const [hours, minutes] = time.split(':').map(Number);
+  const [time] = timeString.split("-"); // Take only the start time "18:00" from "18:00-19:00"
+  const [hours, minutes] = time.split(":").map(Number);
   return hours * 60 + minutes;
 };
 
@@ -20,7 +20,7 @@ const ClassTimeTable = ({ category }: { category: string }) => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/api/get-schedule?category=" + category)
+    fetch(`/api/get-schedule?category=${category}`)
       .then((res) => res.json())
       .then((data) => {
         setScheduleData(data);
@@ -35,7 +35,7 @@ const ClassTimeTable = ({ category }: { category: string }) => {
 
   const schedule: ScheduleType = {};
   const uniqueTimes = [...new Set(scheduleData.map((item) => item.time))];
-  
+
   // Sort times by converting to minutes for proper comparison
   const sortedTimes = uniqueTimes.sort((a, b) => {
     return convertTimeToMinutes(a) - convertTimeToMinutes(b);
@@ -58,12 +58,24 @@ const ClassTimeTable = ({ category }: { category: string }) => {
     "Pazar",
   ];
 
+  const hasSchedules = scheduleData.length > 0;
+
   if (loading) {
-    return <div className="container text-center py-8">Loading...</div>;
+    return <div className="container text-center py-8">Yükleniyor...</div>;
   }
 
   if (error) {
-    return <div className="container text-center py-8 text-red-500">{error}</div>;
+    return (
+      <div className="container text-center py-8 text-red-500">{error}</div>
+    );
+  }
+
+  if (!hasSchedules) {
+    return (
+      <div className="container text-center py-8">
+        Henüz program bulunmamaktadır.
+      </div>
+    );
   }
 
   return (
@@ -72,7 +84,7 @@ const ClassTimeTable = ({ category }: { category: string }) => {
         <div className="row">
           <div className="col-lg-12">
             <div className="class-details-timetable_title">
-              <h5>Haftalık Program</h5>
+              <h5 className="text-center">Haftalık Ders Programımız</h5>
             </div>
           </div>
         </div>
@@ -94,7 +106,8 @@ const ClassTimeTable = ({ category }: { category: string }) => {
                       <td className="class-time">{time}</td>
                       {weekDays.map((day, colIndex) => {
                         const session = schedule[time]?.[day];
-                        const totalIndex = rowIndex * weekDays.length + colIndex;
+                        const totalIndex =
+                          rowIndex * weekDays.length + colIndex;
 
                         return (
                           <td
@@ -110,8 +123,8 @@ const ClassTimeTable = ({ category }: { category: string }) => {
                                   {session.category}
                                 </h5>
                                 <span className="md:text-xs text-[.5rem] capitalize">
-                                  {category === "volleyball" 
-                                    ? "Voleybol" 
+                                  {category === "volleyball"
+                                    ? "Voleybol"
                                     : "Basketbol"}
                                 </span>
                               </>

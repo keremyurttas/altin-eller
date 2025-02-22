@@ -8,7 +8,7 @@ export default function NotFound() {
           <div className="col-lg-12">
             <div className="text-404">
               <h1>404</h1>
-              <h3>Opps! Aradığınız sayfa bulunamadı!</h3>
+              <h2>Opps! Aradığınız sayfa bulunamadı!</h2>
               <p>
                 Aradığınız sayfa mevcut değil, silinmiş veya adı değiştirilmiş.
               </p>

@@ -10,16 +10,15 @@ export const navLinks = [
   },
 
   { href: "/our-team", label: "EKİBİMİZ" },
-  { href: "/contact-us", label: "BİZE ULAŞIN" },
+  { href: "/services", label: "Hizmetlerimiz" },
+
   {
     label: "DİĞER SAYFALAR",
     dropdown: [
       { href: "/registiration-files", label: "Kayıt Belgeleri" },
       { href: "/our-camps", label: "Kamplarımız" },
       { href: "/news", label: "Haberler" },
-        { href: "/services", label: "Hizmetlerimiz" },
+      { href: "/contact-us", label: "Bize Ulaşın" },
     ],
   },
 ];
-
-export type NavLink = typeof navLinks[number];

@@ -1,12 +1,13 @@
 "use client";
 
-import { New } from "@/data/news";
+import { New } from "@/lib/types";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import NewDetailPopup from "@/components/ui/NewDetailsPopup";
 import BreadCrumbSection from "@/components/ui/BreadCrumbSection";
 import { news as newBreadCrumb } from "@/data/breadCrumbs";
 import { Loader2 } from "lucide-react";
+import { PLACEHOLDER_IMAGE_URL } from "@/utils/constants";
 
 export default function Page() {
   const [popupOpen, setPopupOpen] = useState(true);
@@ -217,10 +218,10 @@ export default function Page() {
                           style={{ objectFit: "cover" }}
                           src={
                             Array.isArray(item.imageUrls)
-                              ? item.imageUrls[0]
-                              : item.imageUrls
+                              ? item.imageUrls[0] || PLACEHOLDER_IMAGE_URL
+                              : item.imageUrls || PLACEHOLDER_IMAGE_URL
                           }
-                          alt={item.title}
+                          alt={item.title || "Placeholder image"}
                           quality={100}
                         />
                       </div>
@@ -245,7 +246,7 @@ export default function Page() {
                 ))
               ) : (
                 <div className="col-12 text-center">
-                  <p>No news available</p>
+                  <p>Gösterilecek Haber Bulunamadı.</p>
                 </div>
               )}
             </div>

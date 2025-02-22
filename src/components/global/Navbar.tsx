@@ -1,10 +1,13 @@
 import Link from "next/link";
 import logoImg from "@/app/assets/images/altineller-logo.svg";
 import Image from "next/image";
-import MobileNavbar from "./MobileNavbar";
+import dynamic from "next/dynamic";
 import { navLinks } from "@/data/navLInks";
 import SocialLinks from "../ui/SocialLinks";
 import ActiveLink from "./Navbar/ActiveLink";
+
+const MobileNavbar = dynamic(() => import("./MobileNavbar"));
+
 export default function Navbar() {
   return (
     <header className="header-section">
@@ -13,18 +16,19 @@ export default function Navbar() {
         <div className="row">
           <div className="col-lg-3">
             <div className="logo hidden lg:block">
-              <Link href="/" aria-label="KULÜP">
+              <Link href="/" aria-label="Ana Sayfa">
                 <Image
                   width={120}
                   src={logoImg}
                   alt="Altın Eller Spor Kulübü"
+                  priority
                 />
               </Link>
             </div>
           </div>
           <div className="col-lg-6">
-            <nav className="nav-menu">
-              <ul className="">
+            <nav role="navigation" className="nav-menu">
+              <ul>
                 {navLinks.map((link, index) => (
                   <ActiveLink key={index} link={link} />
                 ))}

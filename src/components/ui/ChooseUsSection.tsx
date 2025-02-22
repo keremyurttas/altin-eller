@@ -1,27 +1,28 @@
-import { Item } from "@/data/chooseUsItems";
+import { Item } from "@/lib/types";
 
 type Props = {
   items: Item[];
 };
-export default function ChooseUsSection(Props: Props) {
+
+export default function ChooseUsSection({ items }: Props) {
   return (
-    <section className="choseus-section spad ">
+    <section className="choseus-section spad">
       <div className="container">
-        <div className="row">
+        <header className="row">
           <div className="col-lg-12">
             <div className="section-title">
-              <span>Why chose us?</span>
-              <h2>PUSH YOUR LIMITS FORWARD</h2>
+              <span>En iyilerle çalış</span>
+              <h2>En iyisi sen ol!</h2>
             </div>
           </div>
-        </div>
+        </header>
         <div className="row">
-          {Props.items.map((item, index) => {
+          {items.map((item, index) => {
             const IconComponent = item.icon;
             return (
               <div key={index} className="col-lg-3 col-sm-6">
                 <div className="cs-item">
-                  <div className="cs-icon">
+                  <div className="cs-icon" aria-hidden="true">
                     <IconComponent size={36} />
                   </div>
                   <h4>{item.title}</h4>

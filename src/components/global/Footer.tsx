@@ -5,17 +5,17 @@ import SocialLinks from "../ui/SocialLinks";
 
 export default function Footer() {
   return (
-    <footer className="bg-black py-8">
+    <footer className="bg-black py-8" role="contentinfo">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
           <div className="flex-shrink-0">
-            <Link href="/" className="block" aria-label="KULÜP">
+            <Link href="/" className="block" aria-label="Ana Sayfa">
               <Image
-              width={120}
-              height={120}
+                width={120}
+                height={120}
                 src={logoImg}
-                alt="Altın Eller Spor Kulübü"
-                className="w-auto object-contain !h-32 "
+                alt="Altın Eller Spor Kulübü Logo"
+                className="w-auto object-contain !h-32"
               />
             </Link>
           </div>

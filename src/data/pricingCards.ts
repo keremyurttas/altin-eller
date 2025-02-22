@@ -1,41 +1,47 @@
+import { FaBasketball, FaVolleyball } from "react-icons/fa6";
+
 export const pricingCards = [
   {
-    title: "Bireysel Dersler",
-    price: "5000 TL",
-    subtitle: "Kişiye özel eğitim",
+    subtitle: "Grup Dersleri",
+    title: "Basketbol",
+
     features: [
-      "1 saatlik ders",
-      "Kişiye özel eğitim",
+      "Haftada 3 ders",
+      "Takım antrenmanları",
       "Spor salonunda",
-      "Kişiye özel program",
-      "Spor salonunda",
-      "Kişiye özel program",
+      "Takım çalışması odaklı",
+      "Antrenör desteği",
+      "Teknik beceri geliştirme",
     ],
+    icon: FaBasketball,
   },
   {
-    title: "Grup Dersleri",
-    price: "500 TL",
-    subtitle: "Kişiye özel eğitim",
+    subtitle: "Grup Dersleri",
+    title: "Voleybol",
+
     features: [
-      "1 saatlik ders",
-      "Kişiye özel eğitim",
+      "Haftada 3 ders",
+      "Takım antrenmanları",
       "Spor salonunda",
-      "Kişiye özel program",
-      "Spor salonunda",
-      "Kişiye özel program",
+      "Eğlenceli oyunlar",
+      "Antrenör desteği",
+      "Koordinasyon geliştirme",
     ],
+    icon: FaVolleyball,
   },
   {
-    title: "Online Dersler",
-    price: "500 TL",
-    subtitle: "Kişiye özel eğitim",
+    subtitle: "Özel Dersler",
+    title: "Kişiye Özel",
+
     features: [
-      "1 saatlik ders",
+      "Uzman antrenör eşliğinde",
       "Kişiye özel eğitim",
       "Spor salonunda",
-      "Kişiye özel program",
-      "Spor salonunda",
-      "Kişiye özel program",
+
+      "Hedefe yönelik antrenman programı",
+      "Teknik analiz ve geri bildirim",
+      "Bireysel gelişim odaklı",
     ],
+    icon: [FaBasketball, FaVolleyball],
   },
 ];
