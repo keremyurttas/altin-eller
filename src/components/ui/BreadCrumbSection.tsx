@@ -29,7 +29,7 @@ export default function BreadCrumbSection({
       {/* Overlay */}
       <div className="absolute top-0 left-0 h-full w-full bg-black bg-opacity-50"></div>
 
-      <div className="container relative z-10">
+      <div className="container relative">
         <div className="row">
           <div className="col-lg-12 text-center">
             <div className="breadcrumb-text">
