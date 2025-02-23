@@ -12,9 +12,6 @@ const nextConfig: NextConfig = {
       pathname: "/your_account/**",
     },
   ],
-  experimental: {
-    optimizeCss: true,
-  },
 };
 
 export default nextConfig;
