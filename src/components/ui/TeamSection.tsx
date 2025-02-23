@@ -95,7 +95,7 @@ export default function TeamSection() {
                       aria-label={`Team member: ${item.name}, ${item.title}`}
                     >
                       <div className="ts_text">
-                        <h4>{item.name}</h4>
+                        <h3>{item.name}</h3>
                         <span className="text-primary">{item.title}</span>
                       </div>
                     </div>

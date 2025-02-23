@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { navLinks } from "@/data/navLInks";
 import Link from "next/link";
 import Image from "next/image";
-import logoImg from "@/app/assets/images/altineller-logo.svg";
+import logoImg from "@/app/assets/images/altineller-logo.webp";
 import dynamic from "next/dynamic";
 
 const SocialLinks = dynamic(() => import("../ui/SocialLinks"), { ssr: false });

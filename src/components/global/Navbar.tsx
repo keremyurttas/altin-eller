@@ -1,5 +1,5 @@
 import Link from "next/link";
-import logoImg from "@/app/assets/images/altineller-logo.svg";
+import logoImg from "@/app/assets/images/altineller-logo.webp";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { navLinks } from "@/data/navLInks";
@@ -19,9 +19,12 @@ export default function Navbar() {
               <Link href="/" aria-label="Ana Sayfa">
                 <Image
                   width={120}
+                  height={60}
                   src={logoImg}
                   alt="Altın Eller Spor Kulübü"
                   priority
+                  quality={90}
+                  className="w-[120px] h-auto"
                 />
               </Link>
             </div>

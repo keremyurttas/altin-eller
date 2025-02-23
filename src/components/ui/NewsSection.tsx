@@ -149,9 +149,9 @@ export default function NewsSection() {
                   >
                     <div className="ci-pic">
                       <Image
-                        width={0}
-                        height={0}
-                        sizes="100vw"
+                        width={500} // Set a reasonable default width
+                        height={300} // Set a reasonable default height
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         style={{ objectFit: "cover" }}
                         src={
                           Array.isArray(item.imageUrls)
@@ -160,11 +160,12 @@ export default function NewsSection() {
                         }
                         alt={item.title}
                         quality={100}
+                        loading="lazy"
                       />
                     </div>
                     <div className="ci-text flex flex-col justify-between min-h-[100px] md:min-h-[130px] lg:min-h-[150px]">
                       <div className="flex justify-between items-center">
-                        <h5 className="text-lg font-bold">{item.title}</h5>
+                        <h3 className="text-lg font-bold">{item.title}</h3>
                         <span className="date text-sm">
                           {item.date.toString()}
                         </span>
@@ -173,7 +174,7 @@ export default function NewsSection() {
                         <span className="font-mulish line-clamp-2">
                           {item.description}
                         </span>
-                        <button className="p-2 bg-gray-200">
+                        <button aria-label="Detay" className="p-2 bg-gray-200">
                           <i className="fa fa-angle-right"></i>
                         </button>
                       </div>

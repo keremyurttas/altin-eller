@@ -94,18 +94,15 @@ img {
   max-width: 100%;
 }
 
-input:focus,
-select:focus,
-button:focus,
-textarea:focus {
+/* Remove default focus outline */
+:focus:not(:focus-visible) {
   outline: none;
 }
 
-a:hover,
-a:focus {
-  text-decoration: none;
-  outline: none;
-  /* color: #fff; */
+/* Show outline only when using keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--primary); /* You can customize the outline style */
+  outline-offset: 2px;
 }
 
 ul,
@@ -183,7 +180,6 @@ ol {
 }
 .primary-btn:hover {
   color: #ffffff;
- 
 }
 
 .primary-btn.btn-normal {
@@ -657,7 +653,7 @@ ol {
   margin: auto;
 }
 
-.cs-item h4 {
+.cs-item h3 {
   color: #ffffff;
   font-size: 22px;
   font-weight: 600;
@@ -735,7 +731,7 @@ ol {
   font-size: 14px;
 }
 
-.class-item .ci-text h5 {
+.class-item .ci-text h3 {
   font-size: 20px;
   color: var(--primary);
   font-weight: 600;
@@ -1110,7 +1106,7 @@ ol {
   border-color: var(--primary);
 }
 
-.ts-item .ts_text h4 {
+.ts-item .ts_text h3 {
   color: #ffffff;
   font-weight: 600;
   margin-bottom: 14px;

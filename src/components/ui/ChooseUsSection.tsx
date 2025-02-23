@@ -25,7 +25,7 @@ export default function ChooseUsSection({ items }: Props) {
                   <div className="cs-icon" aria-hidden="true">
                     <IconComponent size={36} />
                   </div>
-                  <h4>{item.title}</h4>
+                  <h3>{item.title}</h3>
                   <p>{item.description}</p>
                 </div>
               </div>

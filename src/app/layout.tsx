@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://altinellersk.com/assets/images/altineller-logo.svg",
+        url: "https://altinellersk.com/assets/images/altineller-logo.webp",
         width: 1200,
         height: 630,
         alt: "Altıneller Spor Kulübü Logosu",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: "Altıneller Spor Kulübü | Voleybol ve Basketbol",
     description:
       "Altıneller Spor Kulübü, İstanbul'da çocuklara voleybol ve basketbol eğitimi sunan profesyonel bir kulüptür. Bizimle spora adım atın!",
-    images: ["https://altinellersk.com/assets/images/altineller-logo.svg"],
+    images: ["https://altinellersk.com/assets/images/altineller-logo.webp"],
   },
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#0f3d76" },
@@ -91,9 +91,19 @@ export default function RootLayout({
         />
         <link
           rel="apple-touch-icon"
-          href="/favicon-180x180.png"
-          sizes="180x180"
+          href="/favicon-192x192.png"
+          sizes="192x192"
         />
+        {/* <link
+          rel="preload"
+          as="image"
+          href="https://ik.imagekit.io/dyw3rzban/M%C4%B0N%C4%B0K%20TAKIM/_IGP5496.JPG?updatedAt=1739119318202"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="https://ik.imagekit.io/dyw3rzban/K%C3%9C%C3%87%C3%9CK%20A/_IGP5091.JPG?updatedAt=1739119466655"
+        /> */}
         {/* Preconnect for faster font loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
