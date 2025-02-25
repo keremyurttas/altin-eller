@@ -88,7 +88,7 @@ export default function VolleyballClasses() {
                     backgroundPosition: "center",
                   }}
                 >
-                  <h5>Banner 300x300</h5>
+                  <span>Banner 300x300</span>
                 </div>
               </div>
             </div>

@@ -84,7 +84,7 @@ const ClassTimeTable = ({ category }: { category: string }) => {
         <div className="row">
           <div className="col-lg-12">
             <div className="class-details-timetable_title">
-              <h5 className="text-center">Haftalık Ders Programımız</h5>
+              <h4 className="text-center">Haftalık Ders Programımız</h4>
             </div>
           </div>
         </div>

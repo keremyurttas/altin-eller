@@ -138,13 +138,13 @@ export default function MobileNavbar() {
       </div>
 
       {/* Mobile Menu Button */}
-      <div
+      <button
         onClick={() => setIsOpen(true)}
         className="canvas-open lg:hidden flex items-center justify-center"
         aria-label="Menüyü aç"
       >
         <i className="fa fa-bars"></i>
-      </div>
+      </button>
     </>
   );
 }

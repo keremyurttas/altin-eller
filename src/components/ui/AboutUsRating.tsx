@@ -57,7 +57,7 @@ export default function AboutUsRating() {
                   <div className="ab-item" key={index}>
                     <p>{item.title}</p>
                     <div className="barfiller">
-                      <span
+                      <div
                         className="fill "
                         data-percentage={item.percentage}
                         style={{
@@ -67,7 +67,9 @@ export default function AboutUsRating() {
                         aria-valuenow={item.percentage}
                         aria-valuemin={0}
                         aria-valuemax={100}
-                      ></span>
+                        aria-label={`${item.title}: ${item.percentage}%`}
+                        role="progressbar"
+                      ></div>
                       <div className="tipWrap font-mulish">
                         <span className="tip">{item.percentage}%</span>
                       </div>

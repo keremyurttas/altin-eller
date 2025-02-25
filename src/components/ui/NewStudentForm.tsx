@@ -134,8 +134,11 @@ export default function RegistrationForm() {
           >
             {/* Name */}
             <div>
-              <label className="block text-gray-700">İsim - Soyisim</label>
+              <label htmlFor="name" className="block text-gray-700">
+                İsim - Soyisim
+              </label>
               <input
+                id="name"
                 type="text"
                 name="name"
                 value={formData.name}
@@ -150,8 +153,11 @@ export default function RegistrationForm() {
             <div className="flex flex-col md:flex-row md:space-x-4">
               {/* Phone Number */}
               <div className="md:w-1/3">
-                <label className="block text-gray-700">Telefon Numarası</label>
+                <label htmlFor="phone" className="block text-gray-700">
+                  Telefon Numarası
+                </label>
                 <input
+                  id="phone"
                   type="tel"
                   name="phone"
                   value={formData.phone}
@@ -164,8 +170,11 @@ export default function RegistrationForm() {
 
               {/* Gender */}
               <div className="md:w-1/3">
-                <label className="block text-gray-700">Cinsiyet</label>
+                <label htmlFor="gender" className="block text-gray-700">
+                  Cinsiyet
+                </label>
                 <select
+                  id="gender"
                   name="gender"
                   value={formData.gender}
                   onChange={handleChange}
@@ -180,8 +189,11 @@ export default function RegistrationForm() {
 
               {/* Date of Birth */}
               <div className="md:w-1/3">
-                <label className="block text-gray-700">Doğum Tarihi</label>
+                <label htmlFor="dob" className="block text-gray-700">
+                  Doğum Tarihi
+                </label>
                 <input
+                  id="dob"
                   type="date"
                   name="dob"
                   value={formData.dob}
@@ -194,10 +206,11 @@ export default function RegistrationForm() {
 
             {/* Sports History */}
             <div>
-              <label className="block text-gray-700">
+              <label htmlFor="sportsHistory" className="block text-gray-700">
                 Sporcu Geçmişi (Varsa)
               </label>
               <textarea
+                id="sportsHistory"
                 name="sportsHistory"
                 value={formData.sportsHistory}
                 onChange={handleChange}
@@ -208,10 +221,11 @@ export default function RegistrationForm() {
 
             {/* Course Type */}
             <div>
-              <label className="block text-gray-700">
+              <label htmlFor="courseType" className="block text-gray-700">
                 Bilgi Almak İstediğiniz Bölüm
               </label>
               <select
+                id="courseType"
                 name="courseType"
                 value={formData.courseType}
                 onChange={handleChange}

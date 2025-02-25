@@ -18,7 +18,7 @@ export default function ClassCategories({
   return (
     <div className="so-categories">
       <header className="flex justify-between text-white">
-        <h5 className="title !capitalize">Kategoriler</h5>
+        <h2 className="title !capitalize">Kategoriler</h2>
         <h3 className="capitalize">Doğum Yılları</h3>
       </header>
       <ul>

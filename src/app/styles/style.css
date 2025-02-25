@@ -38,6 +38,7 @@ body {
   font-family: "Mulish", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
+  background-color: var(--background);
 }
 .font-mulish {
   font-family: "Mulish", sans-serif;
@@ -2009,7 +2010,7 @@ ol {
   position: relative;
 }
 
-.sidebar-option .so-banner h5 {
+.sidebar-option .so-banner span {
   font-size: 20px;
   font-weight: 600;
   color: #ffffff;

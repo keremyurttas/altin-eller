@@ -222,12 +222,12 @@ export default function Page() {
                               : item.imageUrls || PLACEHOLDER_IMAGE_URL
                           }
                           alt={item.title || "Placeholder image"}
-                          quality={100}
+                          quality={70}
                         />
                       </div>
                       <div className="ci-text flex flex-col justify-between min-h-[100px] md:min-h-[130px] lg:min-h-[150px]">
                         <div className="flex justify-between items-center">
-                          <h5 className="text-lg font-bold">{item.title}</h5>
+                          <h2 className="text-lg font-bold">{item.title}</h2>
                           <span className="date text-sm">
                             {item.date.toString()}
                           </span>
@@ -236,7 +236,7 @@ export default function Page() {
                           <span className="font-mulish line-clamp-2">
                             {item.description}
                           </span>
-                          <button className="p-2  bg-gray-200">
+                          <button aria-label="Haberi incele" className="p-2  bg-gray-200">
                             <i className="fa fa-angle-right"></i>
                           </button>
                         </div>

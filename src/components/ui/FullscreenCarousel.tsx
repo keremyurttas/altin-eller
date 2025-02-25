@@ -39,19 +39,17 @@ export default function FullscreenSwiper() {
       className="h-screen w-full"
       speed={1000}
       onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Track active slide
-      
     >
       {images.map((src, index) => (
         <SwiperSlide key={index} className="relative w-full h-full">
           <Image
             fill
             src={src}
-            
             quality={50}
             alt={`Slayt ${index + 1}`}
             className="w-full h-full object-cover"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw"
-            loading="lazy"
+            loading="eager"
             blurDataURL="https://ik.imagekit.io/dyw3rzban/M%C4%B0N%C4%B0K%20TAKIM/_IGP5496.JPG?updatedAt=1739119318202?tr=w-100,h-100"
             placeholder="blur"
           />
@@ -67,7 +65,7 @@ export default function FullscreenSwiper() {
             <div className="row">
               <div className="col-lg-6 offset-lg-6">
                 <div
-                  className={`hi-text transition-all duration-700 ${
+                  className={`hi-text transition-all duration-700  ${
                     activeIndex === index
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-8"

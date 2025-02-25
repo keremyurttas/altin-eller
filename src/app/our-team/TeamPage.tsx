@@ -57,7 +57,7 @@ export default function Page() {
                         }}
                       >
                         <div className="ts_text team-page-text !-bottom-8">
-                          <h4>{member.name}</h4>
+                          <h3>{member.name}</h3>
                           <span className="text-primary">{member.title}</span>
                         </div>
                       </div>

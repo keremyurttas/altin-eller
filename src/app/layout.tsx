@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   description:
     "Altıneller Spor Kulübü, İstanbul'da çocuklara voleybol ve basketbol eğitimi sunan profesyonel bir kulüptür. Bizimle spora adım atın!",
   keywords:
-    "Altıneller, voleybol, basketbol, spor kulübü, çocuk spor eğitimleri, çocuk basketbol, çocuk voleybol",
+    "Altıneller, voleybol, basketbol, çocuk spor eğitimleri, çocuk basketbol, çocuk voleybol, spor kursları, yaz spor kampları",
   metadataBase: new URL("https://altinellersk.com"),
   alternates: {
     canonical: "https://altinellersk.com",
