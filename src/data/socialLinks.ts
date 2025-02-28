@@ -7,5 +7,5 @@ export const socialLinks = [
 
   { icon: FaWhatsapp, href: "https://wa.me/+905512114035", label: "Youtube" },
   { icon: Instagram, href: "https://www.instagram.com/altinellervoleybol2021/", label: "Instagram" },
-  { icon: Mail, href: "#", label: "Email" },
+  { icon: Mail, href: "mailto:info@altinellersk.com", label: "Email" },
 ];
