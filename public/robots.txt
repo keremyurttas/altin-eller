@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://altinellersk.com
+
+# Sitemaps
+Sitemap: https://altinellersk.com/sitemap.xml

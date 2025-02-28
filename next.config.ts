@@ -12,6 +12,15 @@ const nextConfig: NextConfig = {
       pathname: "/your_account/**",
     },
   ],
+  async redirects() {
+    return [
+      {
+        source: "/sitemap.xml",
+        destination: "/sitemap-0.xml", // Redirect main sitemap to generated one
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
