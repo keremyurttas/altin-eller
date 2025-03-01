@@ -45,6 +45,7 @@ export default function FullscreenSwiper() {
       pagination={isMobile ? { clickable: true } : false}
       className="h-screen w-full"
       speed={1000}
+      autoplay={{ delay: 5000 }}
       onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Track active slide
     >
       {images.map((src, index) => (
