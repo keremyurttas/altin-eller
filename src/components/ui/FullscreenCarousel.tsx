@@ -8,8 +8,8 @@ import "swiper/css/pagination";
 import Image from "next/image";
 
 const images = [
-  "https://ik.imagekit.io/dyw3rzban/M%C4%B0N%C4%B0K%20TAKIM/_IGP5496.JPG?updatedAt=1739119318202",
-  "https://ik.imagekit.io/dyw3rzban/K%C3%9C%C3%87%C3%9CK%20A/_IGP5091.JPG?updatedAt=1739119466655",
+  "https://ik.imagekit.io/dyw3rzban/K%C3%9C%C3%87%C3%9CK%20A/_IGP5380.JPG?updatedAt=1739119476294",
+  "https://ik.imagekit.io/dyw3rzban/09f8b716-8eeb-4a91-a405-a66922489a04.jpeg?updatedAt=1739824059439",
 ];
 
 export default function FullscreenSwiper() {

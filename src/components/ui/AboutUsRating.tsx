@@ -38,12 +38,21 @@ export default function AboutUsRating() {
               </div>
               <div className="at-desc">
                 <p>
-                  Deneyimli ve dinamik eğitmen kadromuz, çocuklarımızla birlikte
-                  öncelikle özgüven ile temel branş tekniklerini geliştirmek,
-                  sonrasında ise takım ruhu ve mücadeleci karakterlerini ortaya
-                  çıkarmak amacıyla etkili yöntemler kullanarak çalışmaktadır.
-                  Çocuklarımızın kendilerini özgüvenle ifade ederek sınırlarını
-                  keşfetmelerini sağlamak, kurumumuzun temel misyonlarındandır.
+                  Altıneller Spor Kulübü olarak 2013 yılından beri basketbol,
+                  2021 yılından beri ise voleybol branşlarında faaliyet
+                  göstermekteyiz. Türkiye Basketbol Federasyonu (TBF) ve Türkiye
+                  Voleybol Federasyonu (TVF) liglerinde mücadele eden
+                  takımlarımızla, sporun rekabetçi ruhunu en iyi şekilde
+                  yansıtırken, sporcularımızın gelişimine de büyük önem
+                  veriyoruz. Deneyimli ve dinamik eğitmen kadromuz,
+                  çocuklarımızın özgüven kazanmalarını, temel teknik
+                  becerilerini geliştirmelerini ve takım ruhunu benimsemelerini
+                  sağlamak için etkili yöntemler kullanmaktadır. Onların
+                  sınırlarını keşfetmelerine, kendilerini özgüvenle ifade
+                  etmelerine ve mücadeleci karakterlerini ortaya çıkarmalarına
+                  rehberlik etmek, kulübümüzün en önemli misyonlarından biridir.
+                  Altıneller ailesi olarak, sporun bir yaşam biçimi olduğunu
+                  biliyor ve her yaştan sporcumuza bu bilinçle yol gösteriyoruz.
                 </p>
               </div>
 

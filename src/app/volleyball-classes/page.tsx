@@ -26,7 +26,7 @@ export default function VolleyballClasses() {
                     width={0}
                     height={0}
                     src={
-                      "https://ik.imagekit.io/dyw3rzban/K%C3%9C%C3%87%C3%9CK%20A/_IGP5264.JPG?updatedAt=1739119467711"
+                      "https://ik.imagekit.io/dyw3rzban/SPOR%20OKULLARI/_IGP5955.JPG?updatedAt=1739119131475"
                     }
                     alt="voleybol kursumuz"
                   ></Image>
@@ -83,12 +83,12 @@ export default function VolleyballClasses() {
                 <div
                   className="so-banner set-bg"
                   style={{
-                    backgroundImage: `url(https://ik.imagekit.io/dyw3rzban/M%C4%B0N%C4%B0K%20TAKIM/_IGP5496.JPG?updatedAt=1739119318202)`,
+                    backgroundImage: `url(https://ik.imagekit.io/dyw3rzban/SPOR%20OKULLARI/_IGP5896.JPG?updatedAt=1739119120364)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
                 >
-                  <span>Banner 300x300</span>
+                  <span>Antrenman Kesitleri</span>
                 </div>
               </div>
             </div>

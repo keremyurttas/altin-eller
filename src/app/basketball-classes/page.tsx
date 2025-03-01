@@ -27,7 +27,7 @@ export default function BasketballClasses() {
                     width={0}
                     height={0}
                     src={
-                      "https://ik.imagekit.io/dyw3rzban/K%C3%9C%C3%87%C3%9CK%20A/_IGP5264.JPG?updatedAt=1739119467711"
+                      "https://ik.imagekit.io/dyw3rzban/IMG_0336.jpeg?updatedAt=1739824083811"
                     }
                     alt="basketol sporcuları"
                   ></Image>
@@ -75,12 +75,12 @@ export default function BasketballClasses() {
                 <div
                   className="so-banner set-bg"
                   style={{
-                    backgroundImage: `url(https://ik.imagekit.io/dyw3rzban/M%C4%B0N%C4%B0K%20TAKIM/_IGP5496.JPG?updatedAt=1739119318202)`,
+                    backgroundImage: `url(https://ik.imagekit.io/dyw3rzban/IMG_7438.jpeg?updatedAt=1739824149655)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
                 >
-                  <span>Banner 300x300</span>
+                  <span>Antrenman Kesitleri</span>
                 </div>
               </div>
             </div>
