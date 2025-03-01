@@ -10,7 +10,7 @@ export const navLinks = [
   },
 
   { href: "/our-team", label: "EKİBİMİZ" },
-  { href: "/services", label: "Hizmetlerimiz" },
+  { href: "/services", label: "HİZMETLERİMİZ" },
 
   {
     label: "DİĞER SAYFALAR",

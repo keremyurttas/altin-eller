@@ -1,37 +1,48 @@
 "use client";
-import { useEffect } from "react";
-
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 export default function AboutUsRating() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
-    // Manually trigger animation for the progress bars
-    const bars = document.querySelectorAll(".fill");
-    bars.forEach((bar) => {
-      const percentage = bar.getAttribute("data-percentage");
-      if (percentage) {
-        (bar as HTMLElement).style.width = `${percentage}%`;
-      }
-    });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Stop observing after animation starts
+        }
+      },
+      { threshold: 0.3 } // Trigger when 30% of the section is visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="aboutus-section">
+    <section ref={sectionRef} className="aboutus-section">
       <div className="container-fluid">
         <div className="row">
           {/* Video Section */}
-          <div className="col-lg-6 p-0">
-            <div
-              className="about-video set-bg"
-              style={{
-                backgroundImage: `url(https://ik.imagekit.io/dyw3rzban/M%C4%B0N%C4%B0K%20TAKIM/458A8854.JPG?updatedAt=1739119196968)`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            ></div>
+          <div className="col-lg-6 p-0 h-[50vh] sm:h-auto">
+            <Image
+              src={
+                "https://ik.imagekit.io/dyw3rzban/M%C4%B0N%C4%B0K%20TAKIM/458A8854.JPG?updatedAt=1739119196968"
+              }
+              fill
+              quality={80}
+              alt="Altıneller Spor Kulübü"
+              className="w-full h-full object-cover"
+            />
           </div>
 
           {/* About Us Section */}
           <div className="col-lg-6 p-0">
-            <div className="about-text">
+            <div className="about-text px-5 py-10 flex flex-col">
               <div className="section-title">
                 <span>Hakkımızda</span>
                 <h2>ÖZGÜVENE GİDEN İLK ADIM</h2>
@@ -67,10 +78,10 @@ export default function AboutUsRating() {
                     <p>{item.title}</p>
                     <div className="barfiller">
                       <div
-                        className="fill "
+                        className={`fill transition-all duration-300 ease-in-out`}
                         data-percentage={item.percentage}
                         style={{
-                          width: "0%",
+                          width: isVisible ? `${item.percentage}%` : "0%",
                           transition: "width 3s ease-in-out",
                         }}
                         aria-valuenow={item.percentage}

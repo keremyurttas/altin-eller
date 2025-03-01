@@ -7,9 +7,14 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from "next/image";
 
-const images = [
+const desktopImages = [
   "https://ik.imagekit.io/dyw3rzban/K%C3%9C%C3%87%C3%9CK%20A/_IGP5380.JPG?updatedAt=1739119476294",
-  "https://ik.imagekit.io/dyw3rzban/09f8b716-8eeb-4a91-a405-a66922489a04.jpeg?updatedAt=1739824059439",
+  "https://ik.imagekit.io/dyw3rzban/IMG_7515.jpeg?updatedAt=1739824148682",
+];
+
+const mobileImages = [
+  "https://ik.imagekit.io/dyw3rzban/_IGP5380%20(3).jpg?updatedAt=1740846725823", // Replace with actual mobile image URLs
+  "https://ik.imagekit.io/dyw3rzban/IMG_8132.png?updatedAt=1739824156362",
 ];
 
 export default function FullscreenSwiper() {
@@ -27,6 +32,8 @@ export default function FullscreenSwiper() {
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
+  const images = isMobile ? mobileImages : desktopImages; // Dynamically select image set
+
   return (
     <Swiper
       aria-label="Ana Sayfa Resimleri"
@@ -43,15 +50,15 @@ export default function FullscreenSwiper() {
       {images.map((src, index) => (
         <SwiperSlide key={index} className="relative w-full h-full">
           <Image
-            fill
             src={src}
-            quality={50}
+            quality={80}
             alt={`Slayt ${index + 1}`}
             className="w-full h-full object-cover"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw"
-            loading="eager"
-            blurDataURL="https://ik.imagekit.io/dyw3rzban/M%C4%B0N%C4%B0K%20TAKIM/_IGP5496.JPG?updatedAt=1739119318202?tr=w-100,h-100"
+            sizes="100vw"
+            priority={index === 0}
             placeholder="blur"
+            blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 5'%3E%3C/svg%3E"
+            fill
           />
           <div className="absolute -right-10 -top-40 h-[200%] w-[50%] sm:w-[50%] rotate-[15deg] transform flex">
             <div className="w-1/3 bg-black h-full opacity-40"></div>

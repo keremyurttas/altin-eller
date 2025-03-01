@@ -1359,35 +1359,8 @@ ol {
   About Us Section
 -----------------------*/
 
-.about-video {
-  height: 640px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.about-video .play-btn {
-  display: inline-block;
-  height: 70px;
-  width: 70px;
-  background: var(--primary);
-  border-radius: 50%;
-  line-height: 70px;
-  text-align: center;
-  font-size: 36px;
-  color: #ffffff;
-}
-
 .about-text {
   background: #000000;
-  height: 640px;
-  padding: 120px 70px 0 70px;
 }
 
 .about-text .section-title {

@@ -24,7 +24,7 @@ export default function ServiceSection({ services }: { services: Service[] }) {
                   width={0}
                   height={0}
                   layout="responsive"
-                  className="w-full !h-full"
+                  className="w-full !h-full object-cover"
                   src={service.image}
                   alt={`${service.title} - ${service.description}`}
                   priority={index === 0} // Load the first image with priority
