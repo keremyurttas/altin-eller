@@ -147,34 +147,41 @@ export default function NewsSection() {
                     }}
                     className="class-item"
                   >
-                    <div className="ci-pic">
+                    <div className="ci-pic relative aspect-video w-full overflow-hidden">
                       <Image
-                        width={500} // Set a reasonable default width
-                        height={300} // Set a reasonable default height
+                        fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        style={{ objectFit: "cover" }}
+                        style={{
+                          objectFit: "cover",
+                          objectPosition: "center",
+                        }}
                         src={
                           Array.isArray(item.imageUrls)
                             ? item.imageUrls[0] || PLACEHOLDER_IMAGE_URL
                             : item.imageUrls || PLACEHOLDER_IMAGE_URL
                         }
                         alt={item.title}
-                        quality={100}
+                        quality={80}
                         loading="lazy"
                       />
                     </div>
-                    <div className="ci-text flex flex-col justify-between min-h-[100px] md:min-h-[130px] lg:min-h-[150px]">
-                      <div className="flex justify-between items-center">
-                        <h3 className="text-lg font-bold">{item.title}</h3>
-                        <span className="date text-sm">
+                    <div className="ci-text flex flex-col justify-between min-h-[100px] md:min-h-[130px] lg:min-h-[150px] p-3">
+                      <div className="flex justify-between items-start gap-2">
+                        <h3 className="text-lg font-bold line-clamp-2 break-words flex-1">
+                          {item.title}
+                        </h3>
+                        <span className="date text-sm text-gray-500 whitespace-nowrap flex-shrink-0">
                           {item.date.toString()}
                         </span>
                       </div>
-                      <div className="ci-text-bottom-container flex justify-between items-center">
-                        <span className="font-mulish line-clamp-2">
+                      <div className="ci-text-bottom-container flex justify-between items-center mt-2">
+                        <span className="font-mulish line-clamp-2 pr-2 flex-1">
                           {item.description}
                         </span>
-                        <button aria-label="Detay" className="p-2 bg-gray-200">
+                        <button
+                          aria-label="Detay"
+                          className="p-2 bg-gray-200 flex-shrink-0 rounded hover:bg-gray-300"
+                        >
                           <i className="fa fa-angle-right"></i>
                         </button>
                       </div>

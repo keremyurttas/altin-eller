@@ -210,7 +210,7 @@ export default function Page() {
                       }}
                       className="class-item relative"
                     >
-                      <div className="ci-pic">
+                      <div className="ci-pic relative aspect-video w-full overflow-hidden">
                         <Image
                           width={0}
                           height={0}
@@ -227,7 +227,7 @@ export default function Page() {
                       </div>
                       <div className="ci-text flex flex-col justify-between min-h-[100px] md:min-h-[130px] lg:min-h-[150px]">
                         <div className="flex justify-between items-center">
-                          <h2 className="text-lg font-bold">{item.title}</h2>
+                          <h2 className="text-lg font-bold text-primary">{item.title}</h2>
                           <span className="date text-sm">
                             {item.date.toString()}
                           </span>
