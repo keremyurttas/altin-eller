@@ -2,9 +2,13 @@
 import React, { useEffect, useState } from "react";
 import type { VolleyballSchedule } from "@/lib/notion";
 
+const normalizeTimeFormat = (timeString: string) => {
+  return timeString.replace(".", ":"); // Convert 14.00 to 14:00
+};
+
 const convertTimeToMinutes = (timeString: string) => {
-  const [time] = timeString.split("-"); // Take only the start time "18:00" from "18:00-19:00"
-  const [hours, minutes] = time.split(":").map(Number);
+  const normalizedTime = normalizeTimeFormat(timeString);
+  const [hours, minutes] = normalizedTime.split(":").map(Number);
   return hours * 60 + minutes;
 };
 
@@ -23,6 +27,7 @@ const ClassTimeTable = ({ category }: { category: string }) => {
     fetch(`/api/get-schedule?category=${category}`)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setScheduleData(data);
         setLoading(false);
       })
@@ -34,18 +39,21 @@ const ClassTimeTable = ({ category }: { category: string }) => {
   }, [category]);
 
   const schedule: ScheduleType = {};
-  const uniqueTimes = [...new Set(scheduleData.map((item) => item.time))];
+  const uniqueTimes = [
+    ...new Set(scheduleData.map((item) => normalizeTimeFormat(item.time))),
+  ];
 
   // Sort times by converting to minutes for proper comparison
-  const sortedTimes = uniqueTimes.sort((a, b) => {
-    return convertTimeToMinutes(a) - convertTimeToMinutes(b);
-  });
+  const sortedTimes = uniqueTimes.sort(
+    (a, b) => convertTimeToMinutes(a) - convertTimeToMinutes(b)
+  );
 
   scheduleData.forEach((item) => {
-    if (!schedule[item.time]) {
-      schedule[item.time] = {};
+    const formattedTime = normalizeTimeFormat(item.time);
+    if (!schedule[formattedTime]) {
+      schedule[formattedTime] = {};
     }
-    schedule[item.time][item.day] = item;
+    schedule[formattedTime][item.day] = item;
   });
 
   const weekDays = [
@@ -58,8 +66,6 @@ const ClassTimeTable = ({ category }: { category: string }) => {
     "Pazar",
   ];
 
-  const hasSchedules = scheduleData.length > 0;
-
   if (loading) {
     return <div className="container text-center py-8">Yükleniyor...</div>;
   }
@@ -70,7 +76,7 @@ const ClassTimeTable = ({ category }: { category: string }) => {
     );
   }
 
-  if (!hasSchedules) {
+  if (scheduleData.length === 0) {
     return (
       <div className="container text-center py-8">
         Henüz program bulunmamaktadır.
@@ -90,36 +96,36 @@ const ClassTimeTable = ({ category }: { category: string }) => {
         </div>
         <div className="row">
           <div className="col-lg-12">
-            <div className="class-timetable details-timetable">
-              <table>
-                <thead>
-                  <tr>
-                    <th></th>
+            <div className="class-timetable details-timetable h-[50vh] overflow-auto">
+              <table className="max-h overflow-auto relative">
+                <thead className="sticky top-0">
+                  <tr >
+                    <th className="bg-opacity-50 bg-transparent"></th>
                     {weekDays.map((day) => (
-                      <th key={day}>{day}</th>
+                      <th   key={day}>{day}</th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
-                  {sortedTimes.map((time, rowIndex) => (
+                  {sortedTimes.map((time,rowIndex) => (
                     <tr key={time}>
-                      <td className="class-time">{time}</td>
-                      {weekDays.map((day, colIndex) => {
+                      <td className="class-time px-1">{time}</td>
+                      {weekDays.map((day,colIndex) => {
                         const session = schedule[time]?.[day];
                         const totalIndex =
-                          rowIndex * weekDays.length + colIndex;
-
+                        rowIndex * weekDays.length + colIndex;
                         return (
                           <td
                             key={`${day}-${time}`}
                             className={`${
                               totalIndex % 2 === 0 ? "dark-bg" : ""
-                            } ${session ? "hover-dp ts-meta" : "blank-td"}`}
+                            } ${session ? "hover-dp ts-meta" : "blank-td"} px-1 max-h-2`
+                          }
                             data-tsmeta={session?.category?.toLowerCase()}
                           >
                             {session && (
                               <>
-                                <h5 className="md:text-base text-xs">
+                                <h5 className="md:text-base text-xs h-max">
                                   {session.category}
                                 </h5>
                                 <span className="md:text-xs text-[.5rem] capitalize">

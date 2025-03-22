@@ -971,10 +971,7 @@ ol {
   margin-bottom: 10px;
 }
 
-.gallery .gs-item:hover .thumb-icon {
-  opacity: 1;
-  visibility: visible;
-}
+
 
 .gallery .gs-item .thumb-icon {
   font-size: 48px;
@@ -996,9 +993,28 @@ ol {
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-
+.gallery .gs-item:hover .thumb-icon {
+  opacity: 1;
+  visibility: visible;
+}
 .gallery .gs-item.grid-wide {
   width: calc(50% - 10px);
+}
+.class-timetable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.class-timetable::-webkit-scrollbar-track {
+  background: #1a1a1a; /* Dark background */
+}
+
+.class-timetable::-webkit-scrollbar-thumb {
+  background: #444; /* Darker thumb */
+  border-radius: 4px;
+}
+
+.class-timetable::-webkit-scrollbar-thumb:hover {
+  background: #666; /* Lighter on hover */
 }
 
 /*---------------------
@@ -1667,9 +1683,7 @@ ol {
   color: #a9a9a9;
 }
 
-.class-timetable.details-timetable td.dark-bg {
-  background: #0a0a0a;
-}
+
 
 .class-timetable table {
   border: 1px solid #363636;
@@ -1715,23 +1729,7 @@ ol {
   background: var(--primary);
 }
 
-.class-timetable table tbody tr td.blank-td {
-  position: relative;
-  overflow: hidden;
-}
 
-.class-timetable table tbody tr td.blank-td:after {
-  position: absolute;
-  left: -47px;
-  top: 59px;
-  width: 237px;
-  height: 1px;
-  background: #363636;
-  content: "";
-  -webkit-transform: rotate(-40deg);
-  -ms-transform: rotate(-40deg);
-  transform: rotate(-40deg);
-}
 
 .class-timetable table tbody tr td h5 {
   color: #ffffff;

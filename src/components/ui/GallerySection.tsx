@@ -55,11 +55,16 @@ export default function GallerySection(props: Props) {
       </div>
     );
   }
+
+  const imageCountToDisplay = isMobile ? 3 : 6;
+  const galleryItemsToDisplay = galleryItems.slice(
+    0,
+    galleryItems.length > imageCountToDisplay ? imageCountToDisplay : galleryItems.length
+  );
   return (
     <div className="gallery-section">
       <div className="gallery">
-        {galleryItems
-          .slice(0, isMobile ? 3 : galleryItems.length)
+        {galleryItemsToDisplay
           .map((item, index) => {
             return (
               <div
@@ -69,11 +74,12 @@ export default function GallerySection(props: Props) {
                   setOpen(true);
                 }}
                 className={`relative ${
-                  index == 0 || index == galleryItems.length - 1
+                  index == 0 || index == imageCountToDisplay-1
                     ? "gs-item grid-wide"
                     : "gs-item"
                 }`}
               >
+                
                 <Image
                   src={item.url}
                   alt={`Gallery image ${index + 1}`}
@@ -82,7 +88,7 @@ export default function GallerySection(props: Props) {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"
                 />
-                <div className="thumb-icon">
+                <div className="thumb-icon relative">
                   <i className="fa fa-picture-o"></i>
                 </div>
               </div>
