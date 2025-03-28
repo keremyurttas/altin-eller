@@ -15,23 +15,23 @@ export default function OurCamp({ camp }: { camp: Camp }) {
 
   return (
     <>
-      <div className="blog-item  rounded-lg shadow-sm overflow-hidden">
-        <div className="grid lg:grid-cols-5 ">
+      <div className="blog-item rounded-lg shadow-sm overflow-hidden h-full">
+        <div className="grid lg:grid-cols-5 h-full items-stretch">
           {/* Image Section */}
-          <div className="relative aspect-[2] lg:col-span-3 cursor-pointer">
+          <div className="relative lg:col-span-3 cursor-pointer w-full min-h-[200px] flex">
             <div
               onClick={() => {
                 setIndex(index);
                 setOpen(true);
               }}
-              className="relative w-full h-full hover:scale-105 transition-transform"
+              className="relative w-full h-full hover:scale-105 transition-transform flex-grow"
             >
-              <div className="relative w-full h-full">
+              <div className="relative w-full h-full min-h-[200px]">
                 <Image
                   src={camp.images?.[0]?.url || PLACEHOLDER_IMAGE_URL}
                   alt={camp.title}
                   fill
-                  className="object-cover "
+                  className="w-full h-full object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
@@ -65,18 +65,18 @@ export default function OurCamp({ camp }: { camp: Camp }) {
           </div>
 
           {/* Content Section */}
-          <div className="p-6 flex flex-col justify-between bi-text lg:col-span-2">
+          <div className="p-6 flex flex-col justify-between bi-text lg:col-span-2 h-full w-full min-h-full">
             <div>
               <h2 className="text-2xl font-semibold mb-4 text-white">
                 {camp.title}
               </h2>
-              <div className="flex gap-4 text-primary mb-4 text-lg ">
+              <div className="flex gap-4 text-primary mb-4 text-lg">
                 <ul>
                   <li>{camp.city}</li>
                   <li>{camp.date}</li>
                 </ul>
               </div>
-              <p>
+              <p className="overflow-hidden">
                 {camp.description ||
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
               </p>

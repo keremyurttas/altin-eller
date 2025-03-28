@@ -79,6 +79,13 @@ export default function NewsSection() {
       setIsLoading(false);
     }
   };
+  function formatDate(dateString: string | number | Date) {
+    return new Date(dateString).toLocaleDateString("en-US", {
+      month: "2-digit",
+      day: "2-digit",
+      year: "numeric",
+    });
+  }
 
   useEffect(() => {
     fetchNews(1);
@@ -171,7 +178,7 @@ export default function NewsSection() {
                           {item.title}
                         </h3>
                         <span className="date text-sm text-gray-500 whitespace-nowrap flex-shrink-0">
-                          {item.date.toString()}
+                          {formatDate(item.date)}
                         </span>
                       </div>
                       <div className="ci-text-bottom-container flex justify-between items-center mt-2">
